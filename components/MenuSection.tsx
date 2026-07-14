@@ -134,13 +134,13 @@ export default function MenuSection() {
     // If it's an object of price chips (variants)
     const variants = Object.entries(price) as [string, number][];
     return (
-      <div className="flex flex-wrap gap-1.5 mt-2">
+      <div className="flex flex-wrap gap-1 mt-1 md:gap-1.5 md:mt-2">
         {variants.map(([key, value]) => {
           if (value === undefined || isNaN(value)) return null;
           return (
             <span 
               key={key}
-              className="inline-flex items-center bg-brand-green/[0.04] border border-brand-green/10 rounded-md px-2 py-0.5 text-[11px] font-medium text-brand-green font-body capitalize"
+              className="inline-flex items-center bg-brand-green/[0.04] border border-brand-green/10 rounded-md px-1.5 py-0.5 text-[10px] md:text-[11px] font-medium text-brand-green font-body capitalize"
             >
               {key}: <span className="font-bold ml-0.5">₹{value}</span>
             </span>
@@ -242,21 +242,21 @@ export default function MenuSection() {
         </div>
 
         {/* Menu Listings */}
-        <div className="mt-8 space-y-16">
+        <div className="mt-6 md:mt-8 space-y-10 md:space-y-16">
           {filteredMenu.length > 0 ? (
             filteredMenu.map((category) => (
               <div 
                 key={category.id} 
                 id={category.id} 
-                className="scroll-mt-36 border-b border-brand-green/5 pb-12 last:border-0 last:pb-0"
+                className="scroll-mt-36 border-b border-brand-green/5 pb-8 md:pb-12 last:border-0 last:pb-0"
               >
                 {/* Category Header */}
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="p-2.5 rounded-lg bg-brand-green/5 text-brand-gold shrink-0">
+                <div className="flex items-center gap-2.5 md:gap-3 mb-2">
+                  <div className="p-2 md:p-2.5 rounded-lg bg-brand-green/5 text-brand-gold shrink-0">
                     {categoryIcons[category.id] || <Utensils className="w-5 h-5" />}
                   </div>
                   <div>
-                    <h3 className="font-display font-extrabold text-brand-green text-xl md:text-2xl leading-none">
+                    <h3 className="font-display font-extrabold text-brand-green text-lg md:text-2xl leading-none">
                       {category.name}
                     </h3>
                     <p className="font-body text-brand-charcoal/60 text-xs sm:text-sm mt-1.5">
@@ -266,11 +266,11 @@ export default function MenuSection() {
                 </div>
 
                 {/* Items Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 mt-4 md:mt-6">
                   {category.items.map((item, idx) => (
                     <div
                       key={idx}
-                      className="group relative flex flex-col justify-between p-5 rounded-2xl bg-brand-cream/[0.15] border-2 border-green-500 hover:border-brand-gold hover:bg-brand-cream/35 hover:shadow-md transition-all duration-250"
+                      className="group relative flex flex-col justify-between p-3 md:p-5 rounded-xl md:rounded-2xl bg-brand-cream/[0.15] border-2 border-green-500 hover:border-brand-gold hover:bg-brand-cream/35 hover:shadow-md transition-all duration-250"
                     >
                       {/* Top Row: Name and Veg Indicator */}
                       <div>
@@ -293,14 +293,14 @@ export default function MenuSection() {
                         </div>
 
                         {/* Description */}
-                        <p className="font-body text-brand-charcoal/70 text-xs sm:text-sm mt-2 leading-relaxed pr-6">
+                        <p className="font-body text-brand-charcoal/70 text-xs sm:text-sm mt-1.5 md:mt-2 leading-relaxed pr-6">
                           {item.description}
                         </p>
                       </div>
 
                       {/* Bottom Row: Price and Bestseller badge */}
-                      <div className="mt-4 pt-3 border-t border-brand-green/[0.03] flex flex-col gap-2">
-                        <div className="flex items-center justify-between gap-2 flex-wrap">
+                      <div className="mt-2.5 pt-2 md:mt-4 md:pt-3 border-t border-brand-green/[0.03] flex flex-col gap-1.5 md:gap-2">
+                        <div className="flex items-center justify-between gap-1.5 md:gap-2 flex-wrap">
                           {/* Prices (Single or Chips) */}
                           <div className="w-full">
                             {renderPrice(item.price)}
@@ -308,7 +308,7 @@ export default function MenuSection() {
                           
                           {/* Bestseller Badge */}
                           {item.bestseller && (
-                            <span className="inline-flex items-center gap-1 text-[10px] font-bold text-brand-gold font-body tracking-wider uppercase bg-brand-gold/5 px-2 py-0.5 rounded border border-brand-gold/15">
+                            <span className="inline-flex items-center gap-1 text-[9px] md:text-[10px] font-bold text-brand-gold font-body tracking-wider uppercase bg-brand-gold/5 px-2 py-0.5 rounded border border-brand-gold/15">
                               ★ Bestseller
                             </span>
                           )}
