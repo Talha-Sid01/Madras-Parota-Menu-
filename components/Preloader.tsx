@@ -15,17 +15,17 @@ export default function Preloader() {
       setIsVisible(true);
       sessionStorage.setItem('preloader_seen', 'true');
       
-      // Minimum visible time (1.5s) + fade animation duration (0.5s)
+      // Keep visible for 1.8s + 0.5s fade out transition
       const timer = setTimeout(() => {
         setIsVisible(false);
-      }, 1600);
+      }, 1900);
 
       return () => clearTimeout(timer);
     }
   }, []);
 
   useEffect(() => {
-    // Check user accessibility preference for reduced motion
+    // Check accessibility preference for reduced motion
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     setPrefersReducedMotion(mediaQuery.matches);
     
@@ -51,51 +51,72 @@ export default function Preloader() {
           aria-label="Loading Madras Parota Menu"
         >
           <div className="relative flex items-center justify-center w-72 h-72">
-            {/* Parota Spiral Rotating Indicator */}
+            {/* Glowing circle loader around logo */}
             {!prefersReducedMotion ? (
-              <motion.svg
-                className="absolute inset-0 w-full h-full text-brand-gold opacity-80"
+              <svg 
+                className="absolute inset-0 w-full h-full text-brand-gold" 
                 viewBox="0 0 100 100"
-                animate={{ rotate: 360 }}
-                transition={{ repeat: Infinity, duration: 4, ease: 'linear' }}
               >
-                {/* outer spiral segment */}
-                <path
-                  d="M 50,10 A 40,40 0 1,1 10,50 A 40,40 0 0,1 50,18"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
+                <defs>
+                  {/* Neon Glow Filter */}
+                  <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+                    <feGaussianBlur stdDeviation="2.5" result="blur" />
+                    <feMerge>
+                      <feMergeNode in="blur" />
+                      <feMergeNode in="blur" /> {/* Extra layer for stronger glow */}
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                </defs>
+                
+                {/* Thin background guide track */}
+                <circle 
+                  cx="50" 
+                  cy="50" 
+                  r="42" 
+                  stroke="#ffffff" 
+                  strokeOpacity="0.08" 
+                  strokeWidth="2" 
+                  fill="transparent" 
                 />
-                {/* inner spiral segment */}
-                <path
-                  d="M 50,22 A 28,28 0 1,1 22,50 A 28,28 0 0,1 50,28"
-                  fill="none"
+                
+                {/* Animated glowing arc circle */}
+                <motion.circle
+                  cx="50"
+                  cy="50"
+                  r="42"
                   stroke="currentColor"
-                  strokeWidth="1.5"
+                  strokeWidth="3.5"
                   strokeLinecap="round"
-                  strokeDasharray="80 30"
+                  strokeDasharray="70 200" // A clean sweep arc
+                  fill="transparent"
+                  filter="url(#glow)"
+                  animate={{ rotate: 360 }}
+                  transition={{ repeat: Infinity, duration: 1.6, ease: 'linear' }}
+                  style={{ originX: '50px', originY: '50px' }}
                 />
-                {/* core spiral segment */}
-                <path
-                  d="M 50,34 A 16,16 0 1,1 34,50 A 16,16 0 0,1 50,38"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1"
-                  strokeLinecap="round"
-                  strokeDasharray="40 15"
-                />
-              </motion.svg>
+              </svg>
             ) : (
-              <div className="absolute inset-0 w-full h-full rounded-full border-2 border-dashed border-brand-gold animate-pulse" />
+              // Fallback simple glowing indicator for accessibility
+              <div className="absolute inset-0 w-full h-full rounded-full border-4 border-brand-gold/25 animate-pulse shadow-[0_0_15px_rgba(218,165,32,0.4)]" />
             )}
 
-            {/* Logo Wrapper */}
+            {/* Pulsing Logo in the center */}
             <motion.div
-              className="relative w-56 h-56 z-10"
-              initial={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, scale: 0.85 }}
-              animate={prefersReducedMotion ? { opacity: 1 } : { opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, ease: 'easeOut' }}
+              className="relative w-52 h-52 z-10 drop-shadow-[0_0_20px_rgba(218,165,32,0.3)]"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={prefersReducedMotion ? { opacity: 1, scale: 1 } : { 
+                opacity: 1, 
+                scale: [0.95, 1.02, 0.95],
+              }}
+              transition={prefersReducedMotion ? { duration: 0.6 } : {
+                opacity: { duration: 0.6 },
+                scale: {
+                  repeat: Infinity,
+                  duration: 2.5,
+                  ease: 'easeInOut'
+                }
+              }}
             >
               <Image
                 src="/images/logo.png"
@@ -107,13 +128,16 @@ export default function Preloader() {
             </motion.div>
           </div>
           
+          {/* Tagline below indicator */}
           <motion.div 
-            className="mt-6 text-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.5 }}
+            className="mt-8 text-center"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.5 }}
           >
-            <p className="font-accent text-brand-gold text-2xl tracking-wide">Authentic South Indian Food</p>
+            <p className="font-accent text-brand-gold text-2xl tracking-wider select-none">
+              Authentic South Indian Food
+            </p>
           </motion.div>
         </motion.div>
       )}

@@ -45,14 +45,14 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="relative w-48 h-48 sm:w-56 sm:h-56 mb-8"
+          className="relative w-60 h-60 sm:w-72 sm:h-72 lg:w-80 lg:h-80 mb-8"
         >
           <Image
             src="/images/logo.png"
             alt="Madras Parota Logo"
             fill
             priority
-            sizes="(max-width: 768px) 192px, 224px"
+            sizes="(max-width: 640px) 240px, (max-width: 1024px) 288px, 320px"
             className="object-contain"
           />
         </motion.div>
