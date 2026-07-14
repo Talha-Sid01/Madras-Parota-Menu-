@@ -1,0 +1,89 @@
+/*
+ * DESIGN SYSTEM CONFIGURATION - MADRAS PAROTA
+ * 
+ * Font Pairing Choice:
+ * - Heading Display: "Bricolage Grotesk" - Chunky, organic, and rounded terminals that mirror the custom-painted typography in the logo.
+ * - Body & Prices: "DM Sans" - Grotesque sans-serif offering outstanding readability at small sizes on mobile displays.
+ * - Accent Taglines: "Caveat" - Elegant, fluid script simulating traditional chalkboards and hand-drawn South Indian signage.
+ * 
+ * Palette:
+ * - Canvas Base: #FFFFFF (Pure White)
+ * - Forest Green: #0C3C26 (Banana leaf background from logo)
+ * - Temple Gold: #DAA520 (Logo border and parota layer golden accents)
+ * - Chilli Red: #9C1A1A (Chettinad spice accents)
+ * - Card Cream: #FAF8F5 (Soft card surfaces to create depth)
+ * - Charcoal Text: #2A2A2A (High-contrast, easy-to-read dark neutral)
+ */
+
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #2a2a2a;
+}
+
+@theme {
+  --color-brand-green: #0C3C26;
+  --color-brand-gold: #DAA520;
+  --color-brand-gold-hover: #E5A93B;
+  --color-brand-red: #9C1A1A;
+  --color-brand-cream: #FAF8F5;
+  --color-brand-charcoal: #2A2A2A;
+
+  --font-display: var(--font-bricolage), sans-serif;
+  --font-body: var(--font-dm-sans), sans-serif;
+  --font-accent: var(--font-caveat), cursive;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-dm-sans), sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar for modern aesthetics */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0c3c26;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #115335;
+}
+
+/* Hide scrollbar utility for category pill navigation */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Custom styles for active highlights */
+.active-pill {
+  background-color: #0c3c26;
+  color: #ffffff;
+  border-color: #0c3c26;
+}
+
+/* Keyboard focus style */
+*:focus-visible {
+  outline: 3px solid #DAA520;
+  outline-offset: 2px;
+}
