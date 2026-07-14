@@ -270,7 +270,7 @@ export default function MenuSection() {
                   {category.items.map((item, idx) => (
                     <div
                       key={idx}
-                      className="group relative flex flex-col justify-between p-5 rounded-2xl bg-brand-cream/[0.15] border border-brand-green/5 hover:border-brand-gold/30 hover:bg-brand-cream/35 hover:shadow-sm transition-all duration-250"
+                      className="group relative flex flex-col justify-between p-5 rounded-2xl bg-brand-cream/[0.15] border-2 border-green-500 hover:border-brand-gold hover:bg-brand-cream/35 hover:shadow-md transition-all duration-250"
                     >
                       {/* Top Row: Name and Veg Indicator */}
                       <div>

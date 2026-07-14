@@ -73,7 +73,7 @@ export default function SignatureDishes() {
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -6 }}
-              className="flex flex-col h-full bg-brand-cream/20 rounded-2xl overflow-hidden shadow-sm border border-brand-green/5 hover:shadow-md transition-all duration-300"
+              className="flex flex-col h-full bg-brand-cream/20 rounded-2xl overflow-hidden shadow-sm border-2 border-green-500 hover:border-brand-gold hover:shadow-md transition-all duration-300"
             >
               {/* Image Container */}
               <div className="relative w-full aspect-square overflow-hidden group">

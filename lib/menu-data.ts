@@ -155,13 +155,13 @@ export const menuData: MenuCategory[] = [
       },
       {
         name: 'South Indian Chicken Leg Piece Biryani',
-        description: 'Fragrant rice served with a chicken leg piece, gravy, and raita.',
+        description: 'Aromatic basmati rice cooked with chicken leg piece, boiled egg, chicken gravy, and raita.',
         type: 'non-veg',
         price: 250
       },
       {
         name: 'Bucket Biryani (serves 4–5 people)',
-        description: 'Feast-sized biryani with chicken pieces, boiled eggs, gravy, and green chutney.',
+        description: 'Large bucket of biryani with two leg pieces, chicken pieces, boiled eggs, Chicken 65, and gravy.',
         type: 'non-veg',
         price: 900
       },
@@ -181,7 +181,7 @@ export const menuData: MenuCategory[] = [
     items: [
       {
         name: 'Sada Dosa',
-        description: 'Classic thin, crisp rice-and-lentil crepe, served hot with chutney.',
+        description: 'Crisp plain rice crepe served with coconut chutney and chicken gravy on request.',
         type: 'veg',
         price: { regular: 60, butter: 80, cheese: 90 }
       },
@@ -193,13 +193,13 @@ export const menuData: MenuCategory[] = [
       },
       {
         name: 'Chicken Boneless Curry Dosa',
-        description: 'Crisp dosa topped with savory shredded boneless chicken curry.',
+        description: 'Crisp golden crepe filled with spiced shredded boneless chicken curry.',
         type: 'non-veg',
         price: { regular: 160, butter: 170, cheese: 190 }
       },
       {
         name: 'Chicken Kothu Dosa',
-        description: 'Spiced dosa stuffed with minced parota, eggs, chicken, and gravy.',
+        description: 'Crisp dosa loaded with minced parota, scrambled egg, and spiced chicken pieces.',
         type: 'non-veg',
         price: { regular: 160, butter: 170, cheese: 190 }
       },
@@ -362,37 +362,37 @@ export const menuData: MenuCategory[] = [
     items: [
       {
         name: 'Parota with Chicken Gravy',
-        description: 'Two parotas served with a bowl of rich, spiced chicken gravy.',
+        description: 'Two flaky parotas served with rich chicken gravy, raita, and pickle.',
         type: 'non-veg',
         price: { regular: 70, wheat: 90, bun: 90, nool: 90 }
       },
       {
         name: 'Parota with Mutton Gravy',
-        description: 'Two parotas served alongside our signature slow-cooked mutton gravy.',
+        description: 'Two layered parotas served with spiced mutton gravy, raita, and pickle.',
         type: 'non-veg',
         price: { regular: 90, wheat: 110, bun: 110, nool: 110 }
       },
       {
         name: 'Parota with Egg Gravy',
-        description: 'Two flaky parotas paired with a rich, aromatic egg gravy.',
+        description: 'Two parotas paired with egg-infused chicken gravy, raita, and pickle.',
         type: 'non-veg',
         price: { regular: 70, wheat: 90, bun: 90, nool: 90 }
       },
       {
         name: 'Parota with Chicken Gravy + 2 Pcs Chicken',
-        description: 'Two layered parotas served with chicken gravy and two chicken pieces.',
+        description: 'Two parotas served with chicken gravy, two chicken pieces, raita, and pickle.',
         type: 'non-veg',
         price: { regular: 120, wheat: 140, bun: 140, nool: 140 }
       },
       {
         name: 'Parota with Mutton Gravy + 2 Pcs Mutton',
-        description: 'Two layered parotas paired with mutton gravy and two tender mutton pieces.',
+        description: 'Two parotas served with mutton gravy, two tender mutton pieces, raita, and pickle.',
         type: 'non-veg',
         price: { regular: 160, wheat: 180, bun: 180, nool: 180 }
       },
       {
         name: 'Parota with Egg Gravy + 2 Pcs Egg',
-        description: 'Two parotas served with egg gravy and two hard-boiled eggs.',
+        description: 'Two parotas served with egg gravy, two hard-boiled eggs, raita, and pickle.',
         type: 'non-veg',
         price: { regular: 110, wheat: 130, bun: 130, nool: 130 }
       }
