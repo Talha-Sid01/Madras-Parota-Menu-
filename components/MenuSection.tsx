@@ -270,7 +270,7 @@ export default function MenuSection() {
                   {category.items.map((item, idx) => (
                     <div
                       key={idx}
-                      className="group relative flex flex-col justify-between p-3 md:p-5 rounded-xl md:rounded-2xl border-2 border-green-500 hover:border-brand-gold hover:shadow-md transition-all duration-250"
+                      className="group relative flex flex-col justify-between p-3 md:p-4.5 rounded-xl md:rounded-2xl border-2 border-green-500 hover:border-brand-gold hover:shadow-md transition-all duration-250"
                       style={{
                         backgroundImage: "linear-gradient(rgba(12, 60, 38, 0.5), rgba(12, 60, 38, 0.65)), url('/images/banana-leaf.png')",
                         backgroundSize: 'cover',
@@ -278,34 +278,27 @@ export default function MenuSection() {
                       }}
                     >
                       {/* Top Row: Name and Veg Indicator */}
-                      <div>
-                        <div className="flex justify-between items-start gap-4">
-                          <h4 className="font-display font-bold text-white text-base leading-snug group-hover:text-white transition-colors duration-200">
-                            {item.name}
-                          </h4>
-                          
-                          {/* Veg/Non-Veg FSSAI Symbol */}
-                          <span 
-                            className={`flex-shrink-0 flex items-center justify-center w-4 h-4 border-2 p-0.5 rounded-sm bg-white mt-0.5 ${
-                              item.type === 'veg' ? 'border-green-600' : 'border-brand-red'
-                            }`}
-                            title={item.type === 'veg' ? 'Pure Veg' : 'Non Veg'}
-                          >
-                            <span className={`w-1.5 h-1.5 rounded-full block ${
-                              item.type === 'veg' ? 'bg-green-600' : 'bg-brand-red'
-                            }`} />
-                          </span>
-                        </div>
-
-                        {/* Description */}
-                        <p className="font-body text-white/90 text-xs sm:text-sm mt-1.5 md:mt-2 leading-relaxed pr-6">
-                          {item.description}
-                        </p>
+                      <div className="flex justify-between items-start gap-4">
+                        <h4 className="font-display font-bold text-white text-base leading-snug group-hover:text-white transition-colors duration-200">
+                          {item.name}
+                        </h4>
+                        
+                        {/* Veg/Non-Veg FSSAI Symbol */}
+                        <span 
+                          className={`flex-shrink-0 flex items-center justify-center w-4 h-4 border-2 p-0.5 rounded-sm bg-white mt-0.5 ${
+                            item.type === 'veg' ? 'border-green-600' : 'border-brand-red'
+                          }`}
+                          title={item.type === 'veg' ? 'Pure Veg' : 'Non Veg'}
+                        >
+                          <span className={`w-1.5 h-1.5 rounded-full block ${
+                            item.type === 'veg' ? 'bg-green-600' : 'bg-brand-red'
+                          }`} />
+                        </span>
                       </div>
 
                       {/* Bottom Row: Price and Bestseller badge */}
-                      <div className="mt-2.5 pt-2 md:mt-4 md:pt-3 border-t border-white/15 flex flex-col gap-1.5 md:gap-2">
-                        <div className="flex items-center justify-between gap-1.5 md:gap-2 flex-wrap">
+                      <div className="mt-3 flex flex-col gap-1.5">
+                        <div className="flex items-center justify-between gap-1.5 flex-wrap">
                           {/* Prices (Single or Chips) */}
                           <div className="w-full">
                             {renderPrice(item.price)}
@@ -313,7 +306,7 @@ export default function MenuSection() {
                           
                           {/* Bestseller Badge */}
                           {item.bestseller && (
-                            <span className="inline-flex items-center gap-1 text-[9px] md:text-[10px] font-bold text-white font-body tracking-wider uppercase bg-white/10 px-2 py-0.5 rounded border border-white/20">
+                            <span className="inline-flex items-center gap-1 text-[9px] md:text-[10px] font-bold text-white font-body tracking-wider uppercase bg-white/10 px-2 py-0.5 rounded border border-white/20 mt-1">
                               ★ Bestseller
                             </span>
                           )}

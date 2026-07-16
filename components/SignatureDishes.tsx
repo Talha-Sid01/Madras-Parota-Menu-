@@ -104,20 +104,17 @@ export default function SignatureDishes() {
               </div>
 
               {/* Text Content */}
-              <div className="flex flex-col flex-grow p-5">
-                <div className="flex justify-between items-start gap-2 mb-2">
-                  <h3 className="font-display font-bold text-white text-lg leading-snug">
+              <div className="flex flex-col flex-grow p-4">
+                <div className="flex justify-between items-start gap-2">
+                  <h3 className="font-display font-bold text-white text-base sm:text-lg leading-snug">
                     {dish.name}
                   </h3>
                   <span className="inline-flex items-center justify-center bg-gradient-to-tr from-[#E2B32B] to-[#F4C542] border border-white/35 text-brand-green font-display font-extrabold text-xs sm:text-sm px-2.5 py-1 rounded-[10px] shadow-[0_2px_6px_rgba(244,197,66,0.3)] hover:scale-105 hover:shadow-[0_4px_10px_rgba(244,197,66,0.45)] transition-all duration-200 shrink-0 select-none">
                     ₹{dish.price}
                   </span>
                 </div>
-                <p className="font-body text-white/90 text-sm leading-relaxed mb-4">
-                  {dish.description}
-                </p>
-                <div className="mt-auto pt-4 border-t border-white/15">
-                  <span className="inline-flex items-center gap-1.5 text-xs font-bold text-white font-body tracking-wider uppercase">
+                <div className="mt-3 pt-3 border-t border-white/15">
+                  <span className="inline-flex items-center gap-1.5 text-[10px] font-bold text-white font-body tracking-wider uppercase">
                     ★ Best Seller
                   </span>
                 </div>
