@@ -125,7 +125,7 @@ export default function MenuSection() {
   const renderPrice = (price: number | MenuItem['price']) => {
     if (typeof price === 'number') {
       return (
-        <span className="inline-flex items-center justify-center bg-gradient-to-tr from-[#E2B32B] to-[#F4C542] border border-white/35 text-brand-green font-display font-extrabold text-sm sm:text-base px-4 py-1.5 rounded-[12px] shadow-[0_2px_8px_rgba(244,197,66,0.35)] hover:shadow-[0_4px_12px_rgba(244,197,66,0.55)] hover:scale-105 transition-all duration-200 select-none">
+        <span className="inline-flex items-center justify-center bg-gradient-to-tr from-[#E2B32B] to-[#F4C542] border border-white/35 text-brand-green font-display font-extrabold text-xs sm:text-sm px-2.5 py-1 rounded-[10px] shadow-[0_2px_6px_rgba(244,197,66,0.3)] hover:shadow-[0_4px_10px_rgba(244,197,66,0.45)] hover:scale-105 transition-all duration-200 select-none">
           ₹{price}
         </span>
       );
@@ -134,15 +134,15 @@ export default function MenuSection() {
     // If it's an object of price chips (variants)
     const variants = Object.entries(price) as [string, number][];
     return (
-      <div className="flex flex-wrap gap-2 mt-1 md:mt-2">
+      <div className="flex flex-wrap gap-1.5 mt-1.5">
         {variants.map(([key, value]) => {
           if (value === undefined || isNaN(value)) return null;
           return (
             <span 
               key={key}
-              className="inline-flex items-center bg-gradient-to-tr from-[#E2B32B] to-[#F4C542] border border-white/35 text-brand-green font-body font-bold text-[11px] md:text-xs px-3 py-1.5 rounded-[12px] shadow-[0_2px_6px_rgba(244,197,66,0.3)] hover:shadow-[0_4px_10px_rgba(244,197,66,0.5)] hover:-translate-y-0.5 hover:scale-105 transition-all duration-200 capitalize select-none"
+              className="inline-flex items-center bg-gradient-to-tr from-[#E2B32B] to-[#F4C542] border border-white/35 text-brand-green font-body font-bold text-[10px] md:text-[11px] px-2 py-0.5 rounded-[10px] shadow-[0_2px_4px_rgba(244,197,66,0.25)] hover:shadow-[0_4px_8px_rgba(244,197,66,0.45)] hover:-translate-y-0.5 hover:scale-105 transition-all duration-200 capitalize select-none"
             >
-              {key}: <span className="font-extrabold ml-1">₹{value}</span>
+              {key}: <span className="font-extrabold ml-0.5">₹{value}</span>
             </span>
           );
         })}
