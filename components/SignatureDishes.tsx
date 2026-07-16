@@ -109,7 +109,7 @@ export default function SignatureDishes() {
                   <h3 className="font-display font-bold text-white text-lg leading-snug">
                     {dish.name}
                   </h3>
-                  <span className="font-body font-extrabold text-white text-base shrink-0">
+                  <span className="inline-flex items-center justify-center bg-gradient-to-tr from-[#E2B32B] to-[#F4C542] border border-white/35 text-brand-green font-display font-extrabold text-sm sm:text-base px-4 py-1.5 rounded-[12px] shadow-[0_2px_8px_rgba(244,197,66,0.35)] hover:scale-105 hover:shadow-[0_4px_12px_rgba(244,197,66,0.55)] transition-all duration-200 shrink-0 select-none">
                     ₹{dish.price}
                   </span>
                 </div>
