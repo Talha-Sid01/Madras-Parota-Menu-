@@ -73,7 +73,7 @@ export default function SignatureDishes() {
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -6 }}
-              className="flex flex-col h-full rounded-2xl overflow-hidden shadow-sm border-2 border-green-500 hover:border-brand-gold hover:shadow-md transition-all duration-300"
+              className="flex flex-col h-full rounded-2xl overflow-hidden border-2 border-green-500 hover:border-brand-gold shadow-[0_0_10px_rgba(34,197,94,0.45)] hover:shadow-[0_0_18px_rgba(218,165,32,0.65)] transition-all duration-300"
               style={{
                 backgroundImage: "linear-gradient(rgba(12, 60, 38, 0.5), rgba(12, 60, 38, 0.65)), url('/images/banana-leaf.png')",
                 backgroundSize: 'cover',

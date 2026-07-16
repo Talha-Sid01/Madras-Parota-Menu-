@@ -270,7 +270,7 @@ export default function MenuSection() {
                   {category.items.map((item, idx) => (
                     <div
                       key={idx}
-                      className="group relative flex flex-col justify-between p-3 md:p-4.5 rounded-xl md:rounded-2xl border-2 border-green-500 hover:border-brand-gold hover:shadow-md transition-all duration-250"
+                      className="group relative flex flex-col justify-between p-3 md:p-4.5 rounded-xl md:rounded-2xl border-2 border-green-500 hover:border-brand-gold shadow-[0_0_10px_rgba(34,197,94,0.45)] hover:shadow-[0_0_18px_rgba(218,165,32,0.65)] transition-all duration-250"
                       style={{
                         backgroundImage: "linear-gradient(rgba(12, 60, 38, 0.5), rgba(12, 60, 38, 0.65)), url('/images/banana-leaf.png')",
                         backgroundSize: 'cover',
