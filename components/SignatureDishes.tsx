@@ -73,7 +73,12 @@ export default function SignatureDishes() {
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -6 }}
-              className="flex flex-col h-full bg-brand-cream/20 rounded-2xl overflow-hidden shadow-sm border-2 border-green-500 hover:border-brand-gold hover:shadow-md transition-all duration-300"
+              className="flex flex-col h-full rounded-2xl overflow-hidden shadow-sm border-2 border-green-500 hover:border-brand-gold hover:shadow-md transition-all duration-300"
+              style={{
+                backgroundImage: "linear-gradient(rgba(12, 60, 38, 0.5), rgba(12, 60, 38, 0.65)), url('/images/banana-leaf.png')",
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+              }}
             >
               {/* Image Container */}
               <div className="relative w-full aspect-square overflow-hidden group">
@@ -101,18 +106,18 @@ export default function SignatureDishes() {
               {/* Text Content */}
               <div className="flex flex-col flex-grow p-5">
                 <div className="flex justify-between items-start gap-2 mb-2">
-                  <h3 className="font-display font-bold text-brand-green text-lg leading-snug">
+                  <h3 className="font-display font-bold text-white text-lg leading-snug">
                     {dish.name}
                   </h3>
-                  <span className="font-body font-extrabold text-brand-green text-base shrink-0">
+                  <span className="font-body font-extrabold text-white text-base shrink-0">
                     ₹{dish.price}
                   </span>
                 </div>
-                <p className="font-body text-brand-charcoal/70 text-sm leading-relaxed mb-4">
+                <p className="font-body text-white/90 text-sm leading-relaxed mb-4">
                   {dish.description}
                 </p>
-                <div className="mt-auto pt-4 border-t border-brand-green/5">
-                  <span className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-gold font-body tracking-wider uppercase">
+                <div className="mt-auto pt-4 border-t border-white/15">
+                  <span className="inline-flex items-center gap-1.5 text-xs font-bold text-white font-body tracking-wider uppercase">
                     ★ Best Seller
                   </span>
                 </div>

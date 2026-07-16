@@ -3,8 +3,8 @@ import Image from 'next/image';
 import { Phone, MessageSquare, Compass, Instagram } from 'lucide-react';
 
 export default function Footer() {
-  const address = "Shop No. 13/14, Ground Floor, Vasant Nagar Co-op. Society, Chincholi Bunder, Malad Link Road, Malad (West) - 400064";
-  const directionsUrl = "https://www.google.com/maps/search/?api=1&query=Shop+No.+13%2F14%2C+Ground+Floor%2C+Vasant+Nagar+Co-op.+Society%2C+Chincholi+Bunder%2C+Malad+Link+Road%2C+Malad+West+400064";
+  const address = "New Link Rd, opp Evershine Mall, Malad, Chincholi Bunder, Malad West, Mumbai, Maharashtra 400064";
+  const directionsUrl = "https://www.google.com/maps/search/?api=1&query=New+Link+Rd%2C+opp+Evershine+Mall%2C+Malad%2C+Chincholi+Bunder%2C+Malad+West%2C+Mumbai%2C+Maharashtra+400064";
 
   return (
     <footer className="bg-brand-green text-white pt-16 pb-28 md:pb-16 border-t border-brand-gold/20">

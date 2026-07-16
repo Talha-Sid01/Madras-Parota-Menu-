@@ -125,7 +125,7 @@ export default function MenuSection() {
   const renderPrice = (price: number | MenuItem['price']) => {
     if (typeof price === 'number') {
       return (
-        <span className="font-display font-extrabold text-brand-green text-base">
+        <span className="font-display font-extrabold text-white text-base">
           ₹{price}
         </span>
       );
@@ -140,9 +140,9 @@ export default function MenuSection() {
           return (
             <span 
               key={key}
-              className="inline-flex items-center bg-brand-green/[0.04] border border-brand-green/10 rounded-md px-1.5 py-0.5 text-[10px] md:text-[11px] font-medium text-brand-green font-body capitalize"
+              className="inline-flex items-center bg-white/10 border border-white/20 rounded-md px-1.5 py-0.5 text-[10px] md:text-[11px] font-medium text-white font-body capitalize"
             >
-              {key}: <span className="font-bold ml-0.5">₹{value}</span>
+              {key}: <span className="font-bold ml-0.5 text-white">₹{value}</span>
             </span>
           );
         })}
@@ -270,12 +270,17 @@ export default function MenuSection() {
                   {category.items.map((item, idx) => (
                     <div
                       key={idx}
-                      className="group relative flex flex-col justify-between p-3 md:p-5 rounded-xl md:rounded-2xl bg-brand-cream/[0.15] border-2 border-green-500 hover:border-brand-gold hover:bg-brand-cream/35 hover:shadow-md transition-all duration-250"
+                      className="group relative flex flex-col justify-between p-3 md:p-5 rounded-xl md:rounded-2xl border-2 border-green-500 hover:border-brand-gold hover:shadow-md transition-all duration-250"
+                      style={{
+                        backgroundImage: "linear-gradient(rgba(12, 60, 38, 0.5), rgba(12, 60, 38, 0.65)), url('/images/banana-leaf.png')",
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                      }}
                     >
                       {/* Top Row: Name and Veg Indicator */}
                       <div>
                         <div className="flex justify-between items-start gap-4">
-                          <h4 className="font-display font-bold text-brand-green text-base leading-snug group-hover:text-brand-green transition-colors duration-200">
+                          <h4 className="font-display font-bold text-white text-base leading-snug group-hover:text-white transition-colors duration-200">
                             {item.name}
                           </h4>
                           
@@ -293,13 +298,13 @@ export default function MenuSection() {
                         </div>
 
                         {/* Description */}
-                        <p className="font-body text-brand-charcoal/70 text-xs sm:text-sm mt-1.5 md:mt-2 leading-relaxed pr-6">
+                        <p className="font-body text-white/90 text-xs sm:text-sm mt-1.5 md:mt-2 leading-relaxed pr-6">
                           {item.description}
                         </p>
                       </div>
 
                       {/* Bottom Row: Price and Bestseller badge */}
-                      <div className="mt-2.5 pt-2 md:mt-4 md:pt-3 border-t border-brand-green/[0.03] flex flex-col gap-1.5 md:gap-2">
+                      <div className="mt-2.5 pt-2 md:mt-4 md:pt-3 border-t border-white/15 flex flex-col gap-1.5 md:gap-2">
                         <div className="flex items-center justify-between gap-1.5 md:gap-2 flex-wrap">
                           {/* Prices (Single or Chips) */}
                           <div className="w-full">
@@ -308,7 +313,7 @@ export default function MenuSection() {
                           
                           {/* Bestseller Badge */}
                           {item.bestseller && (
-                            <span className="inline-flex items-center gap-1 text-[9px] md:text-[10px] font-bold text-brand-gold font-body tracking-wider uppercase bg-brand-gold/5 px-2 py-0.5 rounded border border-brand-gold/15">
+                            <span className="inline-flex items-center gap-1 text-[9px] md:text-[10px] font-bold text-white font-body tracking-wider uppercase bg-white/10 px-2 py-0.5 rounded border border-white/20">
                               ★ Bestseller
                             </span>
                           )}

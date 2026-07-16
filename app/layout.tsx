@@ -69,7 +69,7 @@ export default function RootLayout({
     "servesCuisine": "South Indian, Tamil, Chettinad",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Shop No. 13/14, Ground Floor, Vasant Nagar Co-op. Society, Chincholi Bunder, Malad Link Road, Malad (West)",
+      "streetAddress": "New Link Rd, opp Evershine Mall, Malad, Chincholi Bunder, Malad West",
       "addressLocality": "Mumbai",
       "addressRegion": "Maharashtra",
       "postalCode": "400064",
