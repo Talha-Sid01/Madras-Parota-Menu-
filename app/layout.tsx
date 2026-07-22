@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, DM_Sans, Caveat } from "next/font/google";
 import "./globals.css";
+import SouthIndianBackground from "@/components/SouthIndianBackground";
 
 const bricolage = Bricolage_Grotesque({
   variable: "--font-bricolage",
@@ -111,7 +112,8 @@ export default function RootLayout({
         />
         <link rel="icon" href="/images/logo.png" type="image/png" />
       </head>
-      <body className="min-h-full flex flex-col bg-white text-brand-charcoal selection:bg-brand-gold/30">
+      <body className="min-h-full flex flex-col bg-transparent text-brand-charcoal selection:bg-brand-gold/30">
+        <SouthIndianBackground />
         {children}
       </body>
     </html>

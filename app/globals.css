@@ -87,3 +87,155 @@ body {
   outline: 3px solid #DAA520;
   outline-offset: 2px;
 }
+
+/* ==========================================================================
+   MADRAS PAROTA - SOUTH INDIAN BACKGROUND REDESIGN ANIMATIONS & OVERRIDES
+   ========================================================================== */
+
+/* Keyframe Animations */
+@keyframes floatParticle {
+  0% {
+    transform: translateY(105vh) scale(0.8) translateX(0px);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.45;
+  }
+  85% {
+    opacity: 0.45;
+  }
+  100% {
+    transform: translateY(-10vh) scale(1.2) translateX(25px);
+    opacity: 0;
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg) translateX(0);
+  }
+  25% {
+    transform: translateY(-18px) rotate(4deg) translateX(7px);
+  }
+  50% {
+    transform: translateY(-28px) rotate(-3deg) translateX(-6px);
+  }
+  75% {
+    transform: translateY(-12px) rotate(3deg) translateX(4px);
+  }
+}
+
+@keyframes flickerFlame {
+  0%, 100% {
+    transform: scale(1) translateY(0);
+    opacity: 0.9;
+  }
+  30% {
+    transform: scaleX(0.88) scaleY(1.08) translateY(-0.8px);
+    opacity: 0.96;
+  }
+  50% {
+    transform: scaleX(1.1) scaleY(0.92) translateY(0px);
+    opacity: 1;
+  }
+  70% {
+    transform: scaleX(0.92) scaleY(1.04) translateY(-1.2px);
+    opacity: 0.86;
+  }
+  90% {
+    transform: scaleX(1.04) scaleY(0.96) translateY(0.4px);
+    opacity: 0.94;
+  }
+}
+
+@keyframes riseSteam {
+  0% {
+    transform: translateY(0) scaleX(1) translateX(0);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.05;
+  }
+  50% {
+    transform: translateY(-120px) scaleX(1.15) translateX(12px);
+    opacity: 0.05;
+  }
+  85% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(-240px) scaleX(1.25) translateX(-18px);
+    opacity: 0;
+  }
+}
+
+/* Animation Classes */
+.animate-float-particle {
+  animation: floatParticle linear infinite;
+}
+
+.animate-float-slow {
+  animation: floatSlow ease-in-out infinite;
+}
+
+.animate-flicker-flame {
+  animation: flickerFlame 1.6s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+.animate-rise-steam {
+  animation: riseSteam 11s linear infinite;
+  transform-origin: bottom center;
+}
+
+/* Translucent Section Overrides for Readability and Depth */
+main section,
+section#home,
+section#bestsellers,
+section#menu,
+section#about,
+section#location {
+  background-color: rgba(254, 252, 248, 0.94) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: background-color 0.3s ease;
+}
+
+/* Special styling for Highlights section wrapper to sit lighter */
+section.border-y.border-brand-green\/10.bg-brand-cream\/10 {
+  background-color: rgba(254, 252, 248, 0.88) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Ensure sticky categories/filters bar stays highly readable and blends in */
+#menu .sticky {
+  background-color: rgba(254, 252, 248, 0.96) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(12, 60, 38, 0.08);
+}
+
+/* Ensure navbar blends perfectly when scrolled */
+nav.fixed.z-40.bg-brand-green\/95 {
+  background-color: rgba(12, 60, 38, 0.96) !important;
+}
+
+/* Fine-tune padding / margins for better edge framing */
+@media (min-width: 1280px) {
+  main section {
+    border-radius: 24px;
+    margin-left: 24px;
+    margin-right: 24px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(12, 60, 38, 0.04);
+  }
+  /* Keep spacing consistent */
+  main {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    max-width: 1560px;
+    margin: 0 auto;
+  }
+}
+

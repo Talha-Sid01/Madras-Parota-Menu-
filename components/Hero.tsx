@@ -45,14 +45,14 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="relative w-60 h-60 sm:w-72 sm:h-72 lg:w-80 lg:h-80 mb-8"
+          className="relative w-[384px] h-[384px] sm:w-[460px] sm:h-[460px] lg:w-[512px] lg:h-[512px] mb-8"
         >
           <Image
             src="/images/logo.png"
             alt="Madras Parota Logo"
             fill
             priority
-            sizes="(max-width: 640px) 240px, (max-width: 1024px) 288px, 320px"
+            sizes="(max-width: 640px) 384px, (max-width: 1024px) 460px, 512px"
             className="object-contain"
           />
         </motion.div>
@@ -62,7 +62,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-brand-gold/30 bg-white shadow-sm mb-6"
+          className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-brand-gold/30 bg-white shadow-sm mb-2"
         >
           {/* Veg Indicator */}
           <span className="flex items-center justify-center w-4 h-4 border-2 border-green-600 p-0.5 rounded-sm bg-white">
