@@ -111,7 +111,7 @@ export default function SignatureDishes() {
                   : 'border-green-500 shadow-[0_0_8px_rgba(34,197,94,0.3)] opacity-40 scale-95'
               }`}
               style={{
-                backgroundImage: "linear-gradient(rgba(12, 60, 38, 0.5), rgba(12, 60, 38, 0.65)), url('/images/banana-leaf.png')",
+                backgroundImage: "linear-gradient(rgba(12, 60, 38, 0.5), rgba(12, 60, 38, 0.65)), url('/images/menu_item_bg.png')",
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 scrollSnapAlign: 'center'

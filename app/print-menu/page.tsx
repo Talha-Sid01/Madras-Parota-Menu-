@@ -12,8 +12,9 @@ interface MenuItem {
 }
 
 interface Category {
-  id: number;
+  id: number | string;
   title: string;
+  subtitle?: string;
   caption?: string; // right-aligned headers
   items: MenuItem[];
 }
@@ -23,8 +24,8 @@ const page1Categories: Category[] = [
     id: 1,
     title: "1. Madras Parota Rolls",
     items: [
-      { name: "Chicken Parota Roll", type: "Non-Veg", price: 160 },
-      { name: "Egg Parota Roll", type: "Non-Veg", price: 120 },
+      { name: "Chicken Parota Roll", type: "Non-Veg", price: 160, description: "(Boneless Chicken, Sauses, Mayo, Veggies)" },
+      { name: "Egg Parota Roll", type: "Non-Veg", price: 120, description: "(Boiled & Fried Egg, Sauses, Mayo, Veggies)" },
       { name: "Madras Special Non-Veg Parota Roll", type: "Non-Veg", price: 200 },
       { name: "Chicken Noodles Parota Roll", type: "Non-Veg", price: 180 },
       { name: "Vegetable Parota Roll", type: "Veg", price: 120 },
@@ -34,96 +35,9 @@ const page1Categories: Category[] = [
     ],
   },
   {
-    id: 2,
-    title: "2. Omelette Parota (with Chicken Gravy)",
-    caption: "Regular · Butter · Cheese",
-    items: [
-      { name: "Double Omelette Parota", type: "Non-Veg", prices: [100, 110, 130] },
-      { name: "Egg Veechu Parota (Sandwich Parota)", type: "Non-Veg", prices: [120, 130, 150] },
-      { name: "Chicken Veechu Parota (Sandwich Parota)", type: "Non-Veg", prices: [140, 150, 170] },
-      { name: "Madras Special Veechu Parota (Sandwich Parota)", type: "Non-Veg", prices: [150, 160, 180] },
-    ],
-  },
-  {
-    id: 3,
-    title: "3. Egg & Chicken Omelette",
-    items: [
-      { name: "Egg Kalakki", type: "Non-Veg", price: 50 },
-      { name: "Madras Special Chicken Kalakki", type: "Non-Veg", price: 70 },
-      { name: "Chicken Omelette (Single Egg)", type: "Non-Veg", price: 80 },
-      { name: "Chicken Omelette (Double Egg)", type: "Non-Veg", price: 120 },
-      { name: "Omelette Single", type: "Non-Veg", price: 30 },
-      { name: "Omelette Double", type: "Non-Veg", price: 50 },
-      { name: "Half Fry", type: "Non-Veg", price: 30 },
-    ],
-  },
-  {
-    id: 4,
-    title: "4. Biryani",
-    items: [
-      {
-        name: "South Indian Chicken Dum Biryani",
-        type: "Non-Veg",
-        price: 200,
-        description: "(Chicken Gravy, Boiled Egg, 4 Chicken Pcs, Raita)",
-      },
-      {
-        name: "South Indian Chicken Leg Piece Biryani",
-        type: "Non-Veg",
-        price: 250,
-        description: "(Leg Piece, Chicken Gravy, Boiled Egg, 2 Chicken Pcs, Raita)",
-      },
-      {
-        name: "Bucket Biryani — Serves 4–5",
-        type: "Non-Veg",
-        price: 900,
-        description: "(2 Leg Piece Chickens, 5 Boiled Eggs, 10–15 Chicken Pcs, Chicken 65, Green Chutney, Chicken Gravy)",
-      },
-      {
-        name: "South Indian Mutton Dum Biryani",
-        type: "Non-Veg",
-        price: 300,
-        description: "(Mutton Gravy, Boiled Egg, Raita)",
-      },
-    ],
-  },
-  {
-    id: 5,
-    title: "5. Non-Veg Dosa Corner",
-    caption: "Regular · Butter · Cheese",
-    items: [
-      { name: "Sada Dosa", type: "Veg", prices: [60, 80, 90] },
-      { name: "Egg Dosa", type: "Non-Veg", prices: [100, 110, 130] },
-      { name: "Chicken Boneless Curry Dosa", type: "Non-Veg", prices: [160, 170, 190] },
-      { name: "Chicken Kothu Dosa", type: "Non-Veg", prices: [160, 170, 190] },
-      { name: "Egg Kothu Dosa", type: "Non-Veg", prices: [130, 140, 160] },
-      { name: "Omelette Uttappam", type: "Non-Veg", prices: [110, 120, 140] },
-      { name: "Chicken Noodles Dosa", type: "Non-Veg", prices: [160, 170, 190] },
-      { name: "Chicken Schezwan Noodles Dosa", type: "Non-Veg", prices: [170, 180, 200] },
-      { name: "Chicken Chilli Dosa", type: "Non-Veg", prices: [200, null, null] },
-      { name: "Madras Special Omelette Dosa", type: "Non-Veg", prices: [120, 130, 150] },
-    ],
-  },
-  {
-    id: 6,
-    title: "6. Starters & Gravy (Non-Veg)",
-    items: [
-      { name: "Chettinadu Chicken Sukka", type: "Non-Veg", price: 220 },
-      { name: "Chicken 65", type: "Non-Veg", price: 180 },
-      { name: "Madras Special Egg Masala Fry", type: "Non-Veg", price: 190 },
-      { name: "Chicken Chilli Parota", type: "Non-Veg", price: 240 },
-      { name: "Garlic Chicken", type: "Non-Veg", price: 250 },
-      { name: "Ginger Chicken", type: "Non-Veg", price: 250 },
-      { name: "Pepper Mutton", type: "Non-Veg", price: 350 },
-      { name: "Chettinadu Mutton Sukka", type: "Non-Veg", price: 350 },
-    ],
-  },
-];
-
-const page2Categories: Category[] = [
-  {
     id: 7,
-    title: "7. Parota with Gravy/Kurma (Non-Veg)",
+    title: "2. Parota with Gravy/Kurma (Non-Veg)",
+    subtitle: "South Indian style special in-house chicken masala gravy with lacha parota.",
     caption: "Regular · Wheat · Bun · Nool",
     items: [
       { name: "Parota with Chicken Gravy (No Pieces)", type: "Non-Veg", prices: [70, 90, 90, 90] },
@@ -136,45 +50,292 @@ const page2Categories: Category[] = [
   },
   {
     id: 8,
-    title: "8. Kothu Parota (Non-Veg)",
+    title: "3. Kothu Parota (Non-Veg)",
     caption: "Regular · Butter · Cheese",
     items: [
-      { name: "Boneless Chicken Kothu Parota", type: "Non-Veg", prices: [180, 190, 210] },
+      {
+        name: "Boneless Chicken Kothu Parota",
+        type: "Non-Veg",
+        prices: [180, 190, 210],
+        description: "Pieces of parota shredded and tossed in veggies, chicken gravy, egg bhurji, boneless chicken etc.",
+      },
       { name: "Madras Special Boneless Chicken Kothu Parota", type: "Non-Veg", prices: [200, 210, 230] },
-      { name: "Egg Kothu Parota", type: "Non-Veg", prices: [150, 160, 180] },
-      { name: "Mutton Kothu Parota", type: "Non-Veg", prices: [240, 250, 280] },
+      {
+        name: "Egg Kothu Parota",
+        type: "Non-Veg",
+        prices: [150, 160, 180],
+        description: "Pieces of parota shredded and tossed in veggies, egg gravy, eggs etc.",
+      },
+      {
+        name: "Mutton Kothu Parota",
+        type: "Non-Veg",
+        prices: [240, 250, 280],
+        description: "Pieces of parota shredded and tossed in veggies, mutton gravy, eggs, boneless mutton etc.",
+      },
+    ],
+  },
+  {
+    id: 3,
+    title: "4. Egg & Chicken Omelette",
+    items: [
+      { name: "Egg Kalakki", type: "Non-Veg", price: 50, description: "(Mixure of Egg Half fry , Chicken Gravy , Masala, Etc)" },
+      { name: "Madras Special Chicken Kalakki", type: "Non-Veg", price: 70, description: "(Mixure of Egg Half fry , Chicken Gravy , Masala , Vegeis ,Etc)" },
+      { name: "Chicken Omelette (Single Egg)", type: "Non-Veg", price: 80, description: "(Mixture of Single Egg, Chicken Gravy, Boneless Chicken, Other Masala, Etc)" },
+      { name: "Chicken Omelette (Double Egg)", type: "Non-Veg", price: 120, description: "(Mixture of Double Egg, Chicken Gravy, Boneless Chicken, Other Masala, Etc)" },
+      { name: "Omelette Single", type: "Non-Veg", price: 30, description: "(Single Egg Omelette)" },
+      { name: "Omelette Double", type: "Non-Veg", price: 50, description: "(Double Egg Omelette)" },
+      { name: "Half Fry", type: "Non-Veg", price: 30, description: "(Single Egg Half Fry)" },
+    ],
+  },
+];
+
+const page2Categories: Category[] = [
+  {
+    id: 5,
+    title: "5. Starters & Gravy",
+    items: [
+      {
+        name: "Chettinadu Chicken Sukka",
+        type: "Non-Veg",
+        price: 220,
+        description: "5–6 pieces of chicken sautéed in tava with veggies, coriander, masala, pepper etc., mixed with chicken gravy & in-house masala until reduced to semi-gravy",
+      },
+      {
+        name: "Boneless Chicken 65",
+        type: "Non-Veg",
+        price: 180,
+        description: "8–10 pieces of boneless chicken marinated in South Indian special homemade masala, then fried in refined oil",
+      },
+      {
+        name: "Chicken 65 with Bone",
+        type: "Non-Veg",
+        price: 170,
+        description: "8–10 pieces of bone-in chicken marinated in South Indian special homemade masala, then fried in refined oil",
+      },
+      {
+        name: "Egg Masala Fry",
+        type: "Non-Veg",
+        price: 190,
+        description: "2 boiled eggs sautéed in tava with veggies, masala, pepper etc., cooked until reduced to semi-gravy",
+      },
+      {
+        name: "Madras Special Egg Masala Fry",
+        type: "Non-Veg",
+        price: 220,
+        description: "Same as above, cooked with an extra fried egg",
+      },
+      {
+        name: "Chicken Chilli Parota",
+        type: "Non-Veg",
+        price: 240,
+        description: "Pieces of parota & chicken marinated in Chinese sauces, veggies, vinegar etc.",
+      },
+      {
+        name: "Garlic Chicken",
+        type: "Non-Veg",
+        price: 250,
+        description: "8–10 boneless chicken pieces marinated with sauces & masala, sautéed with minced garlic, black pepper etc.",
+      },
+      {
+        name: "Ginger Chicken",
+        type: "Non-Veg",
+        price: 250,
+        description: "8–10 boneless chicken pieces marinated with sauces & masala, sautéed with minced ginger, garlic, onion etc.",
+      },
+      {
+        name: "Pepper Mutton",
+        type: "Non-Veg",
+        price: 350,
+        description: "4–5 pieces of mutton cooked in tava with sautéed veggies, masala, black pepper, special mutton masala",
+      },
+      {
+        name: "Chettinadu Mutton Sukka",
+        type: "Non-Veg",
+        price: 350,
+        description: "4–6 pieces of mutton sautéed with veggies, coriander, masala, pepper, mixed with mutton gravy & in-house masala until reduced to semi-gravy",
+      },
+      { name: "Chicken Leg Piece Masala Fry", type: "Non-Veg", price: 180 },
+      { name: "Chicken Liver Oil Fry", type: "Non-Veg", price: 180 },
+      { name: "Chicken Pota (Gizzard) Oil Fry", type: "Non-Veg", price: 180 },
+      { name: "Chicken Liver Pota Oil Fry", type: "Non-Veg", price: 180 },
+      { name: "Chicken Liver Pota Masala Fry", type: "Non-Veg", price: 240 },
+    ],
+  },
+  {
+    id: 2,
+    title: "6. Omelette Parota (with Chicken Gravy)",
+    caption: "Regular · Butter · Cheese",
+    items: [
+      { name: "Double Omelette Parota", type: "Non-Veg", prices: [100, 110, 130] },
+      {
+        name: "Egg Veechu Parota (Sandwich Parota)",
+        type: "Non-Veg",
+        prices: [120, 130, 150],
+        description: "(Veechu Parota featuring flaky,layered parottas tossed with spicy Egg Omelette and rich masala gravy then folded and layered to achieve a soft yet crispy texture)",
+      },
+      {
+        name: "Chicken Veechu Parota (Sandwich Parota)",
+        type: "Non-Veg",
+        prices: [140, 150, 170],
+        description: "(Veechu Parota featuring flaky, layered parotas tossed with spicy,juicy chicken pieces and rich masala gravy then folded and layered to achieve a soft yet crispy texture)",
+      },
+      { name: "Madras Special Veechu Parota (Sandwich Parota)", type: "Non-Veg", prices: [150, 160, 180] },
+    ],
+  },
+  {
+    id: 6,
+    title: "7. Chef's Standalone Specials",
+    items: [
+      { name: "Kori Roti (3 Pcs) with Chicken Pieces & Gravy", type: "Non-Veg", price: 180 },
+      { name: "Neer Dosa with Chicken Gravy & Coconut Chutney (3 Pcs)", type: "Non-Veg", price: 150 },
+      {
+        name: "Chicken Kizhi Parota (Banana Leaf Parota)",
+        type: "Non-Veg",
+        price: 299,
+        description: "Three layers of parota soaked in a semi-thick chicken gravy, with boiled egg, omelette and boneless chicken layered in between, wrapped in a banana leaf and cooked.",
+      },
+    ],
+  },
+];
+
+const page3Categories: Category[] = [
+  {
+    id: 4,
+    title: "8. Biryani",
+    items: [
+      {
+        name: "South Indian Chicken Dum Biryani",
+        type: "Non-Veg",
+        price: 200,
+        description: "(Chicken Gravy, Boiled Egg, 4 Chicken Pcs, Raita) — Authentic taste of Tamil Nadu's signature biryani — a masterful blend of flavors, spicy broth, chicken pieces and veggies, layered with fluffy basmati rice and finished with fragrant spices & fresh herbs, topped with a boiled egg.",
+      },
+      {
+        name: "South Indian Chicken Leg Piece Biryani",
+        type: "Non-Veg",
+        price: 250,
+        description: "(Leg Piece, Chicken Gravy, Boiled Egg, 2 Chicken Pcs, Raita) — A masterful blend of flavours, spicy gravy, chicken and veggies, layered with fluffy basmati rice and finished with fragrant spices & fresh herbs, topped with a chicken leg piece and a boiled egg.",
+      },
+      {
+        name: "Bucket Biryani — Serves 4–5",
+        type: "Non-Veg",
+        price: 900,
+        description: "(2 Leg Piece Chickens, 5 Boiled Eggs, 10–15 Chicken Pcs, Chicken 65, Green Chutney, Chicken Gravy, ½ ltr Thums Up)",
+      },
+      {
+        name: "South Indian Mutton Dum Biryani",
+        type: "Non-Veg",
+        price: 300,
+        description: "(Mutton Gravy, Boiled Egg, Raita) — Authentic mutton biryani cooked with aromatic spices, fresh mint and other veggies, tender mutton and basmati rice, finished with a dum for rich flavour.",
+      },
+    ],
+  },
+  {
+    id: 13,
+    title: "9. Extras & Sides",
+    caption: "Regular · Butter · Cheese",
+    items: [
+      { name: "Parota", type: "Veg", prices: [25, 35, 45] },
+      { name: "Wheat Parota", type: "Veg", prices: [35, 45, 55] },
+      { name: "Bun Parota", type: "Veg", prices: [30, 40, 50] },
+      { name: "Nool Parota (Noodles Parota)", type: "Veg", prices: [35, 45, 55] },
+      { name: "Neer Dosa", type: "Veg", prices: [25, null, null] },
+      { name: "Extra Butter", type: "Veg", prices: [20, null, null] },
+      { name: "Extra Cheese", type: "Veg", prices: [30, null, null] },
+      { name: "Extra Raitha", type: "Veg", prices: [30, null, null] },
+    ],
+  },
+  {
+    id: "11a",
+    title: "10. Dosa — Non-Veg",
+    subtitle: "Only Chicken Gravy & Coconut Chutney",
+    caption: "Regular · Butter · Cheese",
+    items: [
+      { name: "Sada Dosa", type: "Non-Veg", prices: [60, 80, 90] },
+      {
+        name: "Egg Dosa",
+        type: "Non-Veg",
+        prices: [100, 110, 130],
+        description: "Crispy dosa wrapped around a rich, savoury egg packed with aromatic spices",
+      },
+      {
+        name: "Chicken Boneless Curry Dosa",
+        type: "Non-Veg",
+        prices: [180, 190, 210],
+        description: "Crispy golden-brown dosa wrapped with rich slow-cooked chicken masala, onion, garlic, ginger and warming spices",
+      },
+      {
+        name: "Chicken Kothu Dosa",
+        type: "Non-Veg",
+        prices: [160, 170, 190],
+        description: "Pieces of dosa shredded and tossed in veggies, chicken gravy, eggs, boneless chicken etc.",
+      },
+      { name: "Egg Kothu Dosa", type: "Non-Veg", prices: [130, 140, 160] },
+      { name: "Chicken Noodles Dosa", type: "Non-Veg", prices: [160, 170, 190] },
+      { name: "Chicken Schezwan Noodles Dosa", type: "Non-Veg", prices: [170, 180, 200] },
+      { name: "Chicken Chilli Dosa", type: "Non-Veg", prices: [200, null, null] },
+      {
+        name: "Madras Special Omelette Dosa",
+        type: "Non-Veg",
+        prices: [120, 130, 150],
+        description: "Crispy dosa wrapped around a rich, savoury omelette packed with aromatic spices",
+      },
     ],
   },
   {
     id: 9,
-    title: "9. Parota & Veg Gravy/Kurma",
+    title: "11. Parota & Veg Gravy/Kurma",
     caption: "Regular · Butter · Cheese",
     items: [
-      { name: "Parotta with Veg Kurma (2 Pieces)", type: "Veg", prices: [70, null, null] },
+      { name: "Parotta with Veg Kurma (2 Pcs)", type: "Veg", prices: [70, null, null] },
       { name: "Vegetable Kothu Parota", type: "Veg", prices: [150, 160, 180] },
       { name: "Paneer Veg Kothu Parota", type: "Veg", prices: [180, 190, 210] },
       { name: "Veg Chilli Parota with Veg Kurma", type: "Veg", prices: [230, null, null] },
-      { name: "Rice Roti with Veg Kurma (3 Pieces)", type: "Veg", prices: [150, null, null] },
-      { name: "Neer Dosa with Veg Curry & Coconut Chutney (3 Pieces)", type: "Veg", prices: [100, null, null] },
+      { name: "Rice Roti with Veg Kurma (3 Pcs)", type: "Veg", prices: [150, null, null] },
+      { name: "Neer Dosa with Veg Curry & Coconut Chutney (3 Pcs)", type: "Veg", prices: [100, null, null] },
     ],
   },
+];
+
+const page4Categories: Category[] = [
   {
     id: 10,
-    title: "10. Idli & Vada",
+    title: "12. Idli & Vada",
     items: [
-      { name: "Idli (3 Pieces)", type: "Veg", price: 50 },
-      { name: "Vada (3 Pieces)", type: "Veg", price: 60 },
-      { name: "Idli Vada (3 Pieces)", type: "Veg", price: 60 },
-      { name: "Set Dosa (3 Pieces)", type: "Veg", price: 60 },
-      { name: "Ghee Idli (2 Pieces)", type: "Veg", price: 90 },
-      { name: "Butter Idli (2 Pieces)", type: "Veg", price: 90 },
-      { name: "Fry Idly (8 Slices)", type: "Veg", price: 130 },
+      { name: "Idli (3 Pcs)", type: "Veg", price: 50 },
+      { name: "Vada (3 Pcs)", type: "Veg", price: 60 },
+      { name: "Idli Vada (3 Pcs)", type: "Veg", price: 60 },
+      { name: "Set Dosa (3 Pcs)", type: "Veg", price: 60 },
+      { name: "Ghee Idli (2 Pcs)", type: "Veg", price: 90 },
+      { name: "Butter Idli (2 Pcs)", type: "Veg", price: 90 },
+      { name: "Fry Idli (8 Slices)", type: "Veg", price: 130 },
       { name: "Schezwan Idli (8 Slices)", type: "Veg", price: 130 },
     ],
   },
   {
-    id: 11,
-    title: "11. Veg Dosa",
+    id: 12,
+    title: "13. Uttappam",
+    subtitle: "(Sambhar,Coconut Chutney,Green Chutney,sweet)",
+    caption: "Regular · Butter · Cheese",
+    items: [
+      { name: "Sada Uttappam", type: "Veg", prices: [80, 90, 110] },
+      { name: "Onion Uttappam", type: "Veg", prices: [90, 100, 120] },
+      { name: "Tomato Uttappam", type: "Veg", prices: [90, 100, 120] },
+      { name: "Onion Tomato Uttappam", type: "Veg", prices: [100, 110, 130] },
+      { name: "Cheese Uttappam", type: "Veg", prices: [120, 130, 150] },
+      { name: "Masala Uttappam", type: "Veg", prices: [110, 120, 140] },
+      { name: "Mysore Sada Uttappam", type: "Veg", prices: [110, 120, 140] },
+      { name: "Mysore Masala Uttappam", type: "Veg", prices: [130, 140, 160] },
+      { name: "Schezwan Sada Uttappam", type: "Veg", prices: [110, 120, 140] },
+      { name: "Schezwan Masala Uttappam", type: "Veg", prices: [130, 140, 160] },
+      { name: "Mayonnaise Uttappam", type: "Veg", prices: [110, 120, 140] },
+      { name: "Mayonnaise Masala Uttappam", type: "Veg", prices: [130, 140, 160] },
+      { name: "Madras Parota's Special Uttappam", type: "Veg", prices: [140, 150, 170] },
+    ],
+  },
+  {
+    id: "11b",
+    title: "14. Dosa — Veg",
+    subtitle: "with Sambhar, Coconut Chutney, Green Chutney, Sweet",
     caption: "Regular · Butter · Cheese",
     items: [
       { name: "Sada Dosa", type: "Veg", prices: [60, 80, 90] },
@@ -196,51 +357,18 @@ const page2Categories: Category[] = [
       { name: "Madras Parota's Special Dosa", type: "Veg", prices: [180, null, null] },
     ],
   },
-];
-
-const page3Categories: Category[] = [
-  {
-    id: 12,
-    title: "12. Uttappam",
-    caption: "Regular · Butter · Cheese",
-    items: [
-      { name: "Sada Uttappam", type: "Veg", prices: [80, 90, 110] },
-      { name: "Onion Uttappam", type: "Veg", prices: [90, 100, 120] },
-      { name: "Tomato Uttappam", type: "Veg", prices: [90, 100, 120] },
-      { name: "Onion Tomato Uttappam", type: "Veg", prices: [100, 110, 130] },
-      { name: "Cheese Uttappam", type: "Veg", prices: [120, 130, 150] },
-      { name: "Masala Uttappam", type: "Veg", prices: [110, 120, 140] },
-      { name: "Mysore Sada Uttappam", type: "Veg", prices: [110, 120, 140] },
-      { name: "Mysore Masala Uttappam", type: "Veg", prices: [130, 140, 160] },
-      { name: "Schezwan Sada Uttappam", type: "Veg", prices: [110, 120, 140] },
-      { name: "Schezwan Masala Uttappam", type: "Veg", prices: [130, 140, 160] },
-      { name: "Mayonnaise Uttappam", type: "Veg", prices: [110, 120, 140] },
-      { name: "Mayonnaise Masala Uttappam", type: "Veg", prices: [130, 140, 160] },
-      { name: "Madras Parota's Special Uttappam", type: "Veg", prices: [140, 150, 170] },
-    ],
-  },
-  {
-    id: 13,
-    title: "13. Extras & Sides",
-    caption: "Regular · Butter · Cheese",
-    items: [
-      { name: "Parota", type: "Veg", prices: [25, 35, 45] },
-      { name: "Wheat Parota", type: "Veg", prices: [35, 45, 55] },
-      { name: "Bun Parota", type: "Veg", prices: [30, 40, 50] },
-      { name: "Nool Parota (Noodles Parota)", type: "Veg", prices: [35, 45, 55] },
-      { name: "Neer Dosa", type: "Veg", prices: [25, null, null] },
-      { name: "Extra Butter", type: "Veg", prices: [20, null, null] },
-      { name: "Extra Cheese", type: "Veg", prices: [30, null, null] },
-      { name: "Extra Raitha", type: "Veg", prices: [30, null, null] },
-    ],
-  },
   {
     id: 14,
-    title: "14. Beverages",
+    title: "15. Beverages",
     caption: "All day",
     items: [
       { name: "Butter Milk", type: "Veg", price: 25 },
-      { name: "Madras Special Filter Coffee", type: "Veg", price: 30 },
+      {
+        name: "Madras Special Filter Coffee",
+        type: "Veg",
+        price: 30,
+        description: "A strong South Indian coffee made from a special rare ground coffee powder with chicory, mixed with sugar & milk, without water.",
+      },
       { name: "Nes Coffee", type: "Veg", price: 30 },
       { name: "Narasus Coffee", type: "Veg", price: 30 },
       { name: "Black Coffee", type: "Veg", price: 20 },
@@ -250,138 +378,14 @@ const page3Categories: Category[] = [
 
 const BananaLeafBackground = ({ pageNum }: { pageNum: number }) => (
   <div className="leaf-bg">
-    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 210 297" preserveAspectRatio="none">
-      <defs>
-        <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#03180c" />
-          <stop offset="50%" stopColor="#072614" />
-          <stop offset="100%" stopColor="#0d3a20" />
-        </linearGradient>
-        <linearGradient id="sheenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#ffffff" stopOpacity="0.05" />
-          <stop offset="30%" stopColor="#ffffff" stopOpacity="0.02" />
-          <stop offset="31%" stopColor="#ffffff" stopOpacity="0" />
-          <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
-        </linearGradient>
-      </defs>
-      <rect width="210" height="297" fill="url(#leafGrad)" />
-      
-      {/* Midrib */}
-      <line x1="105" y1="0" x2="105" y2="297" stroke="#0f4628" strokeWidth="1.2" opacity="0.4" />
-      <line x1="105.5" y1="0" x2="105.5" y2="297" stroke="#daa520" strokeWidth="0.2" opacity="0.15" />
-      
-      {/* Veins (faint banana leaf lines) */}
-      <path d="
-        M 105 15 Q 55 8 0 3
-        M 105 45 Q 55 38 0 33
-        M 105 75 Q 55 68 0 63
-        M 105 105 Q 55 98 0 93
-        M 105 135 Q 55 128 0 123
-        M 105 165 Q 55 158 0 153
-        M 105 195 Q 55 188 0 183
-        M 105 225 Q 55 218 0 213
-        M 105 255 Q 55 248 0 243
-        M 105 285 Q 55 278 0 273
-      " stroke="#125134" strokeWidth="0.5" fill="none" opacity="0.2" />
-      
-      <path d="
-        M 105 15 Q 155 8 210 3
-        M 105 45 Q 155 38 210 33
-        M 105 75 Q 155 68 210 63
-        M 105 105 Q 155 98 210 93
-        M 105 135 Q 155 128 210 123
-        M 105 165 Q 155 158 210 153
-        M 105 195 Q 155 188 210 183
-        M 105 225 Q 155 218 210 213
-        M 105 255 Q 155 248 210 243
-        M 105 285 Q 155 278 210 273
-      " stroke="#125134" strokeWidth="0.5" fill="none" opacity="0.2" />
-      
-      {/* Elegant Kolam geometric patterns in background margins */}
-      <g stroke="#daa520" strokeWidth="0.3" fill="none" opacity="0.06" transform="translate(30, 45) scale(0.5)">
-        <circle cx="0" cy="0" r="10" />
-        <path d="M -20 0 C -10 -10, 10 -10, 20 0 C 10 10, -10 10, -20 0 Z" />
-        <path d="M 0 -20 C -10 -10, -10 10, 0 20 C 10 10, 10 -10, 0 -20 Z" />
-        <circle cx="0" cy="0" r="3" fill="#daa520" />
-      </g>
-      
-      <g stroke="#daa520" strokeWidth="0.3" fill="none" opacity="0.06" transform="translate(180, 255) scale(0.5)">
-        <circle cx="0" cy="0" r="10" />
-        <path d="M -20 0 C -10 -10, 10 -10, 20 0 C 10 10, -10 10, -20 0 Z" />
-        <path d="M 0 -20 C -10 -10, -10 10, 0 20 C 10 10, 10 -10, 0 -20 Z" />
-        <circle cx="0" cy="0" r="3" fill="#daa520" />
-      </g>
-      
-      {/* Temple Gopuram Silhouette rising elegantly from bottom */}
-      <g fill="#02140a" opacity="0.15" transform="translate(105, 296) scale(0.65)">
-        <path d="M -30 0 L -30 -6 L -25 -6 L -25 -16 L -20 -16 L -20 -26 L -15 -26 L -15 -36 L -8 -36 L -8 -44 L 0 -48 L 8 -44 L 8 -36 L 15 -36 L 15 -26 L 20 -26 L 20 -16 L 25 -16 L 25 -6 L 30 -6 L 30 0 Z" />
-        <circle cx="0" cy="-51" r="1.5" fill="#daa520" opacity="0.3" />
-      </g>
-      
-      {/* Curry Leaf branch in left margin */}
-      <g stroke="#daa520" strokeWidth="0.3" fill="none" opacity="0.08" transform="translate(14, 120) rotate(-15) scale(0.75)">
-        <path d="M 0 80 Q -10 40 0 0" />
-        <path d="M 0 10 Q -12 5 -15 8 Q -10 12 0 10" />
-        <path d="M 0 10 Q 12 5 15 8 Q 10 12 0 10" />
-        <path d="M -2 25 Q -14 20 -18 24 Q -12 28 -2 25" />
-        <path d="M 2 25 Q 14 20 18 24 Q 12 28 2 25" />
-        <path d="M -3 40 Q -16 35 -20 40 Q -14 44 -3 40" />
-        <path d="M 3 40 Q 16 35 20 40 Q 14 44 3 40" />
-        <path d="M -3 55 Q -16 50 -20 56 Q -14 60 -3 55" />
-        <path d="M 3 55 Q 16 50 20 56 Q 14 60 3 55" />
-      </g>
-      
-      {/* Star Anise in right margin */}
-      <g stroke="#daa520" strokeWidth="0.35" fill="none" opacity="0.08" transform="translate(196, 95) scale(0.55)">
-        <path d="M 0 0 C -5 -15, 5 -15, 0 0" />
-        <path d="M 0 0 C 15 -5, 15 5, 0 0" transform="rotate(45)" />
-        <path d="M 0 0 C 15 -5, 15 5, 0 0" transform="rotate(90)" />
-        <path d="M 0 0 C 15 -5, 15 5, 0 0" transform="rotate(135)" />
-        <path d="M 0 0 C -5 15, 5 15, 0 0" transform="rotate(180)" />
-        <path d="M 0 0 C -15 5, -15 -5, 0 0" transform="rotate(225)" />
-        <path d="M 0 0 C -15 5, -15 -5, 0 0" transform="rotate(270)" />
-        <path d="M 0 0 C -15 5, -15 -5, 0 0" transform="rotate(315)" />
-        <circle cx="0" cy="0" r="2.5" fill="#daa520" />
-      </g>
-
-      {/* Floating parrots in top margins */}
-      <g stroke="#daa520" strokeWidth="0.3" fill="none" opacity="0.05" transform="translate(160, 40) scale(0.6)">
-        <path d="M 0 0 Q -10 -8 -20 -4 Q -10 4 0 0 Q 10 -8 20 -4 Q 10 4 0 0 Z" />
-      </g>
-
-      {/* Faint clouds at the top center */}
-      <g stroke="#daa520" strokeWidth="0.3" fill="none" opacity="0.05" transform="translate(105, 30)">
-        <path d="M -30 0 A 10 10 0 0 1 -10 0 A 12 12 0 0 1 10 0 A 10 10 0 0 1 30 0 Z" />
-      </g>
-
-      {/* Hanging temple bell at top-left corner */}
-      <g stroke="#daa520" strokeWidth="0.35" fill="none" opacity="0.08" transform="translate(20, 20) scale(0.7)">
-        <line x1="0" y1="-10" x2="0" y2="10" />
-        <path d="M -6 10 L 6 10 L 4 16 L -4 16 Z" />
-        <circle cx="0" cy="18" r="1" fill="#daa520" />
-      </g>
-      {/* Hanging temple bell at top-right corner */}
-      <g stroke="#daa520" strokeWidth="0.35" fill="none" opacity="0.08" transform="translate(190, 20) scale(0.7)">
-        <line x1="0" y1="-10" x2="0" y2="10" />
-        <path d="M -6 10 L 6 10 L 4 16 L -4 16 Z" />
-        <circle cx="0" cy="18" r="1" fill="#daa520" />
-      </g>
-
-      {/* Stepped Gopuram Border Accents (centered on each of the 4 border sides) */}
-      <polygon points="101,8 109,8 107,11 103,11" fill="#daa520" opacity="0.8" />
-      <polygon points="103,11 107,11 105,14" fill="#daa520" opacity="0.8" />
-      
-      <polygon points="101,289 109,289 107,286 103,286" fill="#daa520" opacity="0.8" />
-      <polygon points="103,286 107,286 105,283" fill="#daa520" opacity="0.8" />
-      
-      <polygon points="8,144.5 8,152.5 11,150.5 11,146.5" fill="#daa520" opacity="0.8" />
-      <polygon points="11,146.5 11,150.5 14,148.5" fill="#daa520" opacity="0.8" />
-      
-      <polygon points="202,144.5 202,152.5 199,150.5 199,146.5" fill="#daa520" opacity="0.8" />
-      <polygon points="199,146.5 199,150.5 196,148.5" fill="#daa520" opacity="0.8" />
-
-      <rect width="210" height="297" fill="url(#sheenGrad)" />
-    </svg>
+    <Image
+      src={pageNum === 1 ? "/images/menu_page1_bg.png" : `/images/menu_p${pageNum}_story_bg.png`}
+      alt={`Page ${pageNum} Background`}
+      fill
+      priority
+      unoptimized
+      style={{ objectFit: "fill" }}
+    />
   </div>
 );
 
@@ -413,7 +417,7 @@ const CornerFlourishes = () => (
 
 export default function PrintMenuPage() {
   const address = "New Link Rd, opp Evershine Mall, Malad, Chincholi Bunder, Malad West, Mumbai - 400064";
-  const contactPhones = "+91 70457 14545 / +91 70457 94545";
+  const contactPhones = "+91 70457 94545 / +91 70457 14545";
 
   const renderItem = (item: MenuItem) => {
     let displayName = item.name;
@@ -430,7 +434,7 @@ export default function PrintMenuPage() {
     }
 
     // Determine if the dish is a signature to display a gold spark icon
-    const isSignature = displayName.toLowerCase().includes("special") || displayName.toLowerCase().includes("dum");
+    const isSignature = displayName.toLowerCase().includes("special") || displayName.toLowerCase().includes("dum") || displayName.toLowerCase().includes("kizhi");
 
     return (
       <div key={item.name} className="menu-item menu-item-row">
@@ -480,6 +484,9 @@ export default function PrintMenuPage() {
             </div>
           )}
         </div>
+        {cat.subtitle && (
+          <div className="category-subtitle">{cat.subtitle}</div>
+        )}
         <div className="category-items">
           {cat.items.map((item) => renderItem(item))}
         </div>
@@ -546,7 +553,7 @@ export default function PrintMenuPage() {
         .page-shadow {
           width: 210mm;
           height: 297mm;
-          padding: 12.5mm 12.5mm; /* Enhanced padding inside border frame */
+          padding: 11.5mm 11.5mm; /* Enhanced padding inside border frame */
           box-sizing: border-box;
           position: relative;
           page-break-after: always;
@@ -627,7 +634,7 @@ export default function PrintMenuPage() {
 
         /* Header elements on dark green */
         .header-p1 {
-          height: 44mm;
+          height: 40mm;
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -667,7 +674,7 @@ export default function PrintMenuPage() {
         }
         
         .header-px {
-          height: 16mm;
+          height: 12mm;
           display: flex;
           flex-direction: column;
           justify-content: flex-end;
@@ -701,14 +708,14 @@ export default function PrintMenuPage() {
           height: 1.5px;
           background-color: #daa520;
           margin-top: 2px;
-          margin-bottom: 3.5mm;
+          margin-bottom: 2mm;
         }
 
         /* 2 Column Body */
         .menu-body {
           flex: 1;
           column-count: 2;
-          column-gap: 8mm;
+          column-gap: 7mm;
           column-rule: 1px solid rgba(218, 165, 32, 0.4); /* Gold column divider */
           column-fill: auto;
           overflow: hidden;
@@ -719,11 +726,11 @@ export default function PrintMenuPage() {
           break-inside: avoid;
           -webkit-column-break-inside: avoid;
           page-break-inside: avoid;
-          margin-bottom: 14px; /* Increased category spacing */
-          background: linear-gradient(135deg, rgba(6, 32, 18, 0.75) 0%, rgba(10, 48, 28, 0.65) 100%);
+          margin-bottom: 6px;
+          background: linear-gradient(135deg, rgba(6, 32, 18, 0.78) 0%, rgba(10, 48, 28, 0.68) 100%);
           border: 1px solid rgba(229, 192, 96, 0.25);
-          border-radius: 8px;
-          padding: 12px; /* Increased internal padding */
+          border-radius: 7px;
+          padding: 7px 9px;
           box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
           backdrop-filter: blur(4px);
         }
@@ -737,18 +744,29 @@ export default function PrintMenuPage() {
           background: linear-gradient(to bottom, #edd69a 0%, #d4af37 40%, #aa7c11 100%);
           color: #041a0e; /* Darkest green text */
           font-family: var(--font-bricolage), sans-serif;
-          font-size: 10pt;
-          font-weight: 800;
-          padding: 6px 10px;
-          margin-bottom: 8px;
+          font-size: 12pt;
+          font-weight: 900; /* Bolder category header text */
+          padding: 4px 7px;
+          margin-bottom: 4px;
           display: flex;
           justify-content: space-between;
           align-items: center;
-          border-radius: 6px;
-          border: 1.8px solid #5c3e16; /* Wood-colored brass frame outline */
-          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+          border-radius: 5px;
+          border: 1.5px solid #5c3e16; /* Wood-colored brass frame outline */
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.4);
           text-shadow: 0.5px 0.5px 0px rgba(255, 255, 255, 0.3);
           text-transform: uppercase;
+        }
+
+        .category-subtitle {
+          font-family: var(--font-dm-sans), sans-serif;
+          font-size: 8.2pt;
+          font-style: italic;
+          color: #daa520;
+          margin-top: -2px;
+          margin-bottom: 5px;
+          padding: 0 4px;
+          line-height: 1.2;
         }
         
         /* Column Header alignment inside category bar */
@@ -759,10 +777,10 @@ export default function PrintMenuPage() {
           flex-shrink: 0;
         }
         .caption-col-header {
-          width: 42px;
+          width: 40px;
           text-align: right;
           font-family: var(--font-dm-sans), sans-serif;
-          font-size: 7.5pt;
+          font-size: 8pt;
           font-weight: bold;
           color: #041a0e; /* Darkest green text inside the gold box */
           display: inline-block;
@@ -772,7 +790,7 @@ export default function PrintMenuPage() {
         .category-items {
           display: flex;
           flex-direction: column;
-          gap: 4px; /* Improved item spacing */
+          gap: 1.5px; /* Improved item spacing */
         }
 
         /* Menu item rows */
@@ -802,7 +820,7 @@ export default function PrintMenuPage() {
           color: #e5c060;
           font-weight: bold;
           margin-right: 3px;
-          font-size: 9.5pt;
+          font-size: 9pt;
           text-shadow: 0 0 2px rgba(218, 165, 32, 0.5);
           flex-shrink: 0;
         }
@@ -810,11 +828,11 @@ export default function PrintMenuPage() {
         /* Increased font weight for white-on-green legibility & modern hierarchy */
         .menu-item-name {
           font-family: var(--font-dm-sans), sans-serif;
-          font-size: 9pt;
-          font-weight: 700;
+          font-size: 10.2pt;
+          font-weight: 800; /* Bolder item names */
           color: #f5efd8; /* Warm ivory for item names */
-          letter-spacing: 0.02em;
-          margin-left: 5px;
+          letter-spacing: 0.01em;
+          margin-left: 4px;
           flex-shrink: 1;
           min-width: 0;
         }
@@ -826,12 +844,13 @@ export default function PrintMenuPage() {
         }
         .menu-item-description {
           font-family: var(--font-dm-sans), sans-serif;
-          font-size: 7.5pt;
+          font-size: 7.8pt;
+          font-style: italic;
           font-weight: 400;
           color: rgba(245, 239, 216, 0.85); /* Slightly muted warm ivory for description */
-          margin-left: 14px;
+          margin-left: 13px;
           line-height: 1.2;
-          margin-top: 2px;
+          margin-top: 1.5px;
         }
         .menu-item-prices {
           display: flex;
@@ -841,11 +860,11 @@ export default function PrintMenuPage() {
         }
         /* Prices in gold for visual dominance */
         .price-val {
-          width: 42px;
+          width: 40px;
           text-align: right;
           font-family: var(--font-dm-sans), sans-serif;
-          font-size: 9pt;
-          font-weight: 800;
+          font-size: 10.2pt;
+          font-weight: 900; /* Bolder pricing text */
           color: #e5c060; /* Antique gold */
           display: inline-block;
           flex-shrink: 0;
@@ -856,28 +875,28 @@ export default function PrintMenuPage() {
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          width: 9px;
-          height: 9px;
+          width: 8.5px;
+          height: 8.5px;
           border: 1px solid #ffffff; /* White square outline for contrast */
           box-sizing: border-box;
           flex-shrink: 0;
         }
         .veg-nonveg-mark.veg .dot {
-          width: 4px;
-          height: 4px;
+          width: 3.5px;
+          height: 3.5px;
           border-radius: 50%;
           background-color: #2ecc71; /* Brighter neon-green dot */
         }
         .veg-nonveg-mark.nonveg .dot {
-          width: 4px;
-          height: 4px;
+          width: 3.5px;
+          height: 3.5px;
           border-radius: 50%;
           background-color: #e74c3c; /* Bright red dot */
         }
 
         /* Footer elements on dark green background */
         .footer-container {
-          height: 12mm;
+          height: 9mm;
           display: flex;
           flex-direction: column;
           justify-content: flex-end;
@@ -890,37 +909,47 @@ export default function PrintMenuPage() {
           justify-content: space-between;
           align-items: center;
           font-family: var(--font-dm-sans), sans-serif;
-          font-size: 8pt;
+          font-size: 7.8pt;
           color: #f5efd8; /* Warm ivory */
           font-weight: 600;
         }
         .footer-socials {
           display: flex;
-          gap: 12px;
-          align-items: center;
+          gap: 20px;
+          align-items: flex-start;
+          flex-shrink: 0;
         }
         .footer-social-item {
           display: flex;
-          align-items: center;
+          align-items: flex-start;
           gap: 3px;
+          white-space: nowrap;
         }
         .footer-disclaimer-row {
           display: flex;
           justify-content: space-between;
           align-items: center;
           font-family: var(--font-dm-sans), sans-serif;
-          font-size: 7.2pt;
+          font-size: 7pt;
           color: rgba(245, 239, 216, 0.7); /* Muted warm ivory */
           margin-top: 1px;
         }
 
-        /* Page 3 Mascot Layout */
-        .page-3-mascot-row {
+        /* Mascot Container in Column 2 */
+        .page-2-mascot-row {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-top: 6mm;
+          padding: 8px;
+          background: transparent;
+        }
+        .page-4-mascot-row {
           display: flex;
           justify-content: space-around;
           align-items: center;
-          margin-top: 15mm;
-          padding: 10px;
+          margin-top: 4mm;
+          padding: 6px;
           background: transparent;
         }
         .mascot-img-card {
@@ -950,19 +979,6 @@ export default function PrintMenuPage() {
         <div className="border-frame-inner"></div>
         <CornerFlourishes />
 
-        {/* Mascot Chef floating in the top-left header margin where it cannot overlap text */}
-        <div className="mascot-character" style={{ top: "12mm", left: "14mm", width: "32mm", height: "32mm" }}>
-          <Image
-            src="/images/mascot_chef.png"
-            alt="Mascot Chef"
-            width={128}
-            height={128}
-            priority
-            unoptimized
-            style={{ objectFit: "contain", width: "100%", height: "100%" }}
-          />
-        </div>
-        
         <div className="page-content">
           {/* Page 1 Header */}
           <div className="header-p1">
@@ -995,94 +1011,83 @@ export default function PrintMenuPage() {
 
           {/* Page 1 Body */}
           <div className="menu-body">
-            {page1Categories.map((cat) => renderCategory(cat))}
+            {page1Categories.map((cat) => renderCategory(cat, cat.id === 8))}
           </div>
 
           {/* Page 1 Footer */}
           <div className="footer-container">
             <div className="footer-top-row">
-              <span>{address}</span>
+              <span style={{ flexShrink: 1, paddingRight: '10px' }}>{address}</span>
               <div className="footer-socials">
-                <span className="footer-social-item">
-                  Ph: {contactPhones}
-                </span>
-                <span className="footer-social-item">
-                  WA: +91 70457 14545
-                </span>
-                <span className="footer-social-item">
+                <div className="footer-social-item" style={{ display: 'flex', flexDirection: 'column', gap: '1.5px', alignItems: 'flex-start' }}>
+                  <div>Ph: +91 70457 94545</div>
+                  <div style={{ marginLeft: '22px' }}>+91 70457 14545</div>
+                </div>
+                <div className="footer-social-item">
+                  WA: +91 70457 94545
+                </div>
+                <div className="footer-social-item">
                   IG: @madrasparota
-                </span>
+                </div>
               </div>
             </div>
             <div className="footer-disclaimer-row">
               <span>Prices inclusive of applicable taxes. Subject to change without notice.</span>
-              <span style={{ color: "#daa520", fontWeight: "bold" }}>Page 1 of 3</span>
+              <span style={{ color: "#daa520", fontWeight: "bold" }}>Page 1 of 4</span>
             </div>
           </div>
         </div>
       </div>
 
-      {/* PAGE 2: NON-VEG SPECIALTIES, PART 2 + VEGETARIAN, PART 1 */}
+      {/* PAGE 2: STARTERS & GRAVY (LEFT) + CHEF'S STANDALONE SPECIALS (RIGHT) */}
       <div className="page-shadow" id="page-2">
         <BananaLeafBackground pageNum={2} />
         <div className="border-frame-outer"></div>
         <div className="border-frame-inner"></div>
         <CornerFlourishes />
 
-        {/* Mascot Dosa floating in the top-right header margin where it cannot overlap text */}
-        <div className="mascot-character" style={{ top: "11mm", right: "14mm", width: "28mm", height: "28mm" }}>
-          <Image
-            src="/images/mascot_dosa.png"
-            alt="Mascot Dosa"
-            width={112}
-            height={112}
-            priority
-            unoptimized
-            style={{ objectFit: "contain", width: "100%", height: "100%" }}
-          />
-        </div>
-        
         <div className="page-content">
           {/* Page 2 Header */}
           <div className="header-px">
             <div className="header-px-row">
               <span className="header-px-title">MADRAS PAROTA</span>
-              <span className="header-px-subtitle" style={{ marginRight: "32mm" }}>Menu · Page 2 of 3</span>
+              <span className="header-px-subtitle" style={{ marginRight: "32mm" }}>Menu · Page 2 of 4</span>
             </div>
           </div>
 
           <hr className="gold-divider" />
 
-          {/* Page 2 Body */}
+          {/* Page 2 Body: Section 5 on Left, Section 2 & 6 forced to Right Column */}
           <div className="menu-body">
-            {page2Categories.map((cat) => renderCategory(cat))}
+            {page2Categories.map((cat) => renderCategory(cat, cat.id === 2))}
           </div>
 
           {/* Page 2 Footer */}
           <div className="footer-container">
             <div className="footer-top-row">
-              <span>{address}</span>
+              <span style={{ flexShrink: 1, paddingRight: '10px' }}>{address}</span>
               <div className="footer-socials">
-                <span className="footer-social-item">
-                  Ph: {contactPhones}
-                </span>
-                <span className="footer-social-item">
-                  WA: +91 70457 14545
-                </span>
-                <span className="footer-social-item">
+                <div className="footer-social-item" style={{ display: 'flex', flexDirection: 'column', gap: '1.5px', alignItems: 'flex-start' }}>
+                  <div>Ph: +91 70457 94545</div>
+                  <div style={{ marginLeft: '22px' }}>+91 70457 14545</div>
+                </div>
+                <div className="footer-social-item">
+                  WA: +91 70457 94545
+                </div>
+                <div className="footer-social-item">
                   IG: @madrasparota
-                </span>
+                </div>
               </div>
             </div>
             <div className="footer-disclaimer-row">
               <span>Prices inclusive of applicable taxes. Subject to change without notice.</span>
-              <span style={{ color: "#daa520", fontWeight: "bold" }}>Page 2 of 3</span>
+              <span style={{ color: "#daa520", fontWeight: "bold" }}>Page 2 of 4</span>
             </div>
           </div>
         </div>
       </div>
 
-      {/* PAGE 3: VEGETARIAN, PART 2 + BEVERAGES */}
+      {/* PAGE 3: PAROTA & GRAVY + KOTHU + IDLI & VADA */}
       <div className="page-shadow" id="page-3">
         <BananaLeafBackground pageNum={3} />
         <div className="border-frame-outer"></div>
@@ -1094,7 +1099,7 @@ export default function PrintMenuPage() {
           <div className="header-px">
             <div className="header-px-row">
               <span className="header-px-title">MADRAS PAROTA</span>
-              <span className="header-px-subtitle">Menu · Page 3 of 3</span>
+              <span className="header-px-subtitle">Menu · Page 3 of 4</span>
             </div>
           </div>
 
@@ -1102,54 +1107,77 @@ export default function PrintMenuPage() {
 
           {/* Page 3 Body */}
           <div className="menu-body">
-            {page3Categories.map((cat) => renderCategory(cat, cat.id === 14))}
-            
-            {/* Mascot Coffee and Idli characters positioned side-by-side inside Column 2 under Beverages list */}
-            <div className="page-3-mascot-row">
-              <div className="mascot-img-card">
-                <Image
-                  src="/images/mascot_coffee.png"
-                  alt="Mascot Coffee"
-                  width={96}
-                  height={96}
-                  priority
-                  unoptimized
-                  style={{ display: "block" }}
-                />
-              </div>
-              <div className="mascot-img-card">
-                <Image
-                  src="/images/mascot_idli.png"
-                  alt="Mascot Idli"
-                  width={96}
-                  height={96}
-                  priority
-                  unoptimized
-                  style={{ display: "block" }}
-                />
-              </div>
-            </div>
+            {page3Categories.map((cat) => renderCategory(cat, cat.id === "11a"))}
           </div>
 
           {/* Page 3 Footer */}
           <div className="footer-container">
             <div className="footer-top-row">
-              <span>{address}</span>
+              <span style={{ flexShrink: 1, paddingRight: '10px' }}>{address}</span>
               <div className="footer-socials">
-                <span className="footer-social-item">
-                  Ph: {contactPhones}
-                </span>
-                <span className="footer-social-item">
-                  WA: +91 70457 14545
-                </span>
-                <span className="footer-social-item">
+                <div className="footer-social-item" style={{ display: 'flex', flexDirection: 'column', gap: '1.5px', alignItems: 'flex-start' }}>
+                  <div>Ph: +91 70457 94545</div>
+                  <div style={{ marginLeft: '22px' }}>+91 70457 14545</div>
+                </div>
+                <div className="footer-social-item">
+                  WA: +91 70457 94545
+                </div>
+                <div className="footer-social-item">
                   IG: @madrasparota
-                </span>
+                </div>
               </div>
             </div>
             <div className="footer-disclaimer-row">
               <span>Prices inclusive of applicable taxes. Subject to change without notice.</span>
-              <span style={{ color: "#daa520", fontWeight: "bold" }}>Page 3 of 3</span>
+              <span style={{ color: "#daa520", fontWeight: "bold" }}>Page 3 of 4</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* PAGE 4: DOSA + UTTAPPAM + EXTRAS + BEVERAGES */}
+      <div className="page-shadow" id="page-4">
+        <BananaLeafBackground pageNum={4} />
+        <div className="border-frame-outer"></div>
+        <div className="border-frame-inner"></div>
+        <CornerFlourishes />
+        
+        <div className="page-content">
+          {/* Page 4 Header */}
+          <div className="header-px">
+            <div className="header-px-row">
+              <span className="header-px-title">MADRAS PAROTA</span>
+              <span className="header-px-subtitle">Menu · Page 4 of 4</span>
+            </div>
+          </div>
+
+          <hr className="gold-divider" />
+
+          {/* Page 4 Body */}
+          <div className="menu-body">
+            {page4Categories.map((cat) => renderCategory(cat, cat.id === "11b"))}
+          </div>
+
+          {/* Page 4 Footer */}
+          <div className="footer-container">
+            <div className="footer-top-row">
+              <span style={{ flexShrink: 1, paddingRight: '10px' }}>{address}</span>
+              <div className="footer-socials">
+                <div className="footer-social-item" style={{ display: 'flex', flexDirection: 'column', gap: '1.5px', alignItems: 'flex-start' }}>
+                  <div>Ph: +91 70457 94545</div>
+                  <div style={{ marginLeft: '22px' }}>+91 70457 14545</div>
+                </div>
+                <div className="footer-social-item">
+                  WA: +91 70457 94545
+                </div>
+                <div className="footer-social-item">
+                  IG: @madrasparota
+                </div>
+              </div>
+            </div>
+            <div className="footer-disclaimer-row">
+              <span>Prices inclusive of applicable taxes. Subject to change without notice.</span>
+              <span style={{ color: "#daa520", fontWeight: "bold" }}>Page 4 of 4</span>
             </div>
           </div>
         </div>

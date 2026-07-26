@@ -81,13 +81,13 @@ async function main() {
       return { items, categories };
     });
 
-    console.log(`Validation result: Found ${counts.items}/108 items, ${counts.categories}/14 categories.`);
+    console.log(`Validation result: Found ${counts.items}/117 items, ${counts.categories}/15 categories.`);
 
-    if (counts.items !== 108) {
-      throw new Error(`CRITICAL FAIL: Expected exactly 108 menu items, but found ${counts.items}! Aborting PDF export to prevent incomplete files.`);
+    if (counts.items !== 117) {
+      throw new Error(`CRITICAL FAIL: Expected exactly 117 menu items, but found ${counts.items}! Aborting PDF export to prevent incomplete files.`);
     }
-    if (counts.categories !== 14) {
-      throw new Error(`CRITICAL FAIL: Expected exactly 14 category headers, but found ${counts.categories}! Aborting PDF export to prevent incomplete files.`);
+    if (counts.categories !== 15) {
+      throw new Error(`CRITICAL FAIL: Expected exactly 15 category headers, but found ${counts.categories}! Aborting PDF export to prevent incomplete files.`);
     }
 
     console.log(`Generating PDF menu: ${OUTPUT_FILE}...`);
