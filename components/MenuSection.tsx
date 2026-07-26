@@ -1,8 +1,9 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import { menuData } from '@/lib/menu-data';
-import { MenuItem, MenuCategory } from '@/lib/types';
+import { MenuItem, MenuCategory, MenuItemPrice } from '@/lib/types';
 import { 
   Coffee, 
   Egg, 
@@ -14,7 +15,7 @@ import {
   Leaf, 
   Disc, 
   Compass, 
-  Grid,
+  Grid as GridIcon,
   Search,
   Sparkles,
   UtensilsCrossed
@@ -33,8 +34,129 @@ const categoryIcons: { [key: string]: React.ReactNode } = {
   'veg-gravy': <Leaf className="w-4 h-4" />,
   'idli-vada': <Disc className="w-4 h-4" />,
   'veg-dosa': <Compass className="w-4 h-4" />,
-  uttappam: <Grid className="w-4 h-4" />,
+  uttappam: <GridIcon className="w-4 h-4" />,
   beverages: <Coffee className="w-4 h-4" />
+};
+
+// Map dish or category name to high-contrast, professional stock food photos
+const getDishImage = (name: string, categoryId: string): string => {
+  const lowerName = name.toLowerCase();
+
+  // Specific local image matches
+  if (lowerName.includes('chettinad chicken curry') || lowerName.includes('chettinnad chicken curry')) {
+    return '/images/Chettinnad Chicken Curry.jpeg';
+  }
+  if (lowerName.includes('chicken 65')) {
+    return '/images/Chicken 65.jpeg';
+  }
+  if (lowerName.includes('kizhi parota') || lowerName.includes('kizhi parotta')) {
+    return '/images/Chicken Kizhi Parota.jpeg';
+  }
+  if (lowerName.includes('parota roll') || lowerName.includes('parotta roll')) {
+    return '/images/Chicken Parota Roll.jpeg';
+  }
+  if (lowerName.includes('kori roti')) {
+    return '/images/Kori Roti.jpeg';
+  }
+  if (lowerName.includes('neer dosa')) {
+    return '/images/Neer Dosa.jpeg';
+  }
+  if (lowerName.includes('nool parota') || lowerName.includes('nool parotta')) {
+    return '/images/Nool parota.jpeg';
+  }
+  if (lowerName.includes('masala dosa')) {
+    return '/images/Masala_Dosa (1).jpeg';
+  }
+
+  // Fallbacks based on keywords
+  if (lowerName.includes('roll')) {
+    return 'https://images.unsplash.com/photo-1626132647523-66f5bf380027?w=600&auto=format&fit=crop&q=80';
+  }
+  if (lowerName.includes('dosa') || lowerName.includes('uttapam')) {
+    return 'https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=600&auto=format&fit=crop&q=80';
+  }
+  if (lowerName.includes('idli') || lowerName.includes('vada')) {
+    return 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=600&auto=format&fit=crop&q=80';
+  }
+  if (lowerName.includes('biryani')) {
+    return 'https://images.unsplash.com/photo-1633945274405-b6c8069047b0?w=600&auto=format&fit=crop&q=80';
+  }
+  if (lowerName.includes('curry') || lowerName.includes('gravy') || lowerName.includes('salna') || lowerName.includes('masala')) {
+    return 'https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=600&auto=format&fit=crop&q=80';
+  }
+  if (lowerName.includes('coffee') || lowerName.includes('tea') || lowerName.includes('milk') || lowerName.includes('beverage')) {
+    return 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600&auto=format&fit=crop&q=80';
+  }
+  if (lowerName.includes('omelette') || lowerName.includes('egg') || lowerName.includes('kalakki') || lowerName.includes('podimas')) {
+    return 'https://images.unsplash.com/photo-1525351484163-7529414344d8?w=600&auto=format&fit=crop&q=80';
+  }
+
+  // Fallbacks based on category id
+  switch (categoryId) {
+    case 'rolls':
+      return 'https://images.unsplash.com/photo-1626132647523-66f5bf380027?w=600&auto=format&fit=crop&q=80';
+    case 'chicken-dry':
+    case 'chicken-gravy':
+    case 'roti-curry':
+      return 'https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=600&auto=format&fit=crop&q=80';
+    case 'beverages':
+      return 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600&auto=format&fit=crop&q=80';
+    default:
+      return 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=600&auto=format&fit=crop&q=80';
+  }
+};
+
+interface Badge {
+  text: string;
+  className: string;
+}
+
+// Generate elegant badges dynamically for items
+const getDishBadges = (item: MenuItem): Badge[] => {
+  const badges: Badge[] = [];
+  const lowerName = item.name.toLowerCase();
+
+  // Bestseller Badge
+  if (item.bestseller) {
+    badges.push({
+      text: '★ Bestseller',
+      className: 'bg-amber-500 text-white border-amber-500 shadow-sm'
+    });
+  }
+
+  // Chef Special Badge
+  if (lowerName.includes('special') || lowerName.includes('kizhi') || lowerName.includes('madras')) {
+    badges.push({
+      text: 'Chef Special',
+      className: 'bg-purple-50 text-purple-700 border-purple-200'
+    });
+  }
+
+  // Spicy Badge
+  if (lowerName.includes('chilli') || lowerName.includes('schezwan') || lowerName.includes('pepper') || lowerName.includes('spicy') || lowerName.includes('kothu')) {
+    badges.push({
+      text: '🌶 Spicy',
+      className: 'bg-orange-50 text-orange-700 border-orange-200'
+    });
+  }
+
+  // Protein Rich Badge
+  if (lowerName.includes('chicken') || lowerName.includes('egg') || lowerName.includes('paneer')) {
+    badges.push({
+      text: 'Protein Rich',
+      className: 'bg-blue-50 text-blue-700 border-blue-200'
+    });
+  }
+
+  // Popular Badge
+  if (item.bestseller && badges.length < 3) {
+    badges.push({
+      text: 'Popular',
+      className: 'bg-emerald-50 text-emerald-700 border-emerald-200'
+    });
+  }
+
+  return badges.slice(0, 2); // Limit to maximum 2 badges to keep layouts balanced
 };
 
 export default function MenuSection() {
@@ -71,7 +193,7 @@ export default function MenuSection() {
       if (!scrollSpyRef.current) return;
 
       const categoryElements = menuData.map(cat => document.getElementById(cat.id));
-      const scrollPosition = window.scrollY + 180; // Offset for sticky headers
+      const scrollPosition = window.scrollY + 200; // Offset for sticky headers
 
       for (let i = categoryElements.length - 1; i >= 0; i--) {
         const el = categoryElements[i];
@@ -106,7 +228,7 @@ export default function MenuSection() {
     
     const targetElement = document.getElementById(id);
     if (targetElement) {
-      const offset = 140; // Combined sticky headers height
+      const offset = 150; // Combined sticky headers height
       const elementPosition = targetElement.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
 
@@ -122,40 +244,35 @@ export default function MenuSection() {
     }, 800);
   };
 
-  const renderPrice = (price: number | MenuItem['price']) => {
-    if (typeof price === 'number') {
-      return (
-        <span className="inline-flex items-center justify-center bg-gradient-to-tr from-[#E2B32B] to-[#F4C542] border border-white/35 text-brand-green font-display font-extrabold text-xs sm:text-sm px-2.5 py-1 rounded-[10px] shadow-[0_2px_6px_rgba(244,197,66,0.3)] hover:shadow-[0_4px_10px_rgba(244,197,66,0.45)] hover:scale-105 transition-all duration-200 select-none">
-          ₹{price}
-        </span>
-      );
+  // Launch WhatsApp order message for the selected dish
+  const handleOrderClick = (item: MenuItem, variantName?: string) => {
+    const phoneNumber = '917045714545';
+    let message = `Hi Madras Parota, I would like to order the following dish from your digital menu:\n\n*${item.name}*`;
+    
+    if (variantName) {
+      message += ` (${variantName} variant)`;
+    }
+    
+    if (typeof item.price === 'number') {
+      message += ` - ₹${item.price}`;
+    } else if (variantName && item.price[variantName.toLowerCase() as keyof MenuItemPrice]) {
+      message += ` - ₹${item.price[variantName.toLowerCase() as keyof MenuItemPrice]}`;
+    } else {
+      message += ` (Please customize)`;
     }
 
-    // If it's an object of price chips (variants)
-    const variants = Object.entries(price) as [string, number][];
-    return (
-      <div className="flex flex-wrap justify-end gap-1.5">
-        {variants.map(([key, value]) => {
-          if (value === undefined || isNaN(value)) return null;
-          return (
-            <span 
-              key={key}
-              className="inline-flex items-center bg-gradient-to-tr from-[#E2B32B] to-[#F4C542] border border-white/35 text-brand-green font-body font-bold text-[10px] md:text-[11px] px-2 py-0.5 rounded-[10px] shadow-[0_2px_4px_rgba(244,197,66,0.25)] hover:shadow-[0_4px_8px_rgba(244,197,66,0.45)] hover:-translate-y-0.5 hover:scale-105 transition-all duration-200 capitalize select-none"
-            >
-              {key}: <span className="font-extrabold ml-0.5">₹{value}</span>
-            </span>
-          );
-        })}
-      </div>
-    );
+    message += `\n\nPlease let me know the preparation time. Thank you!`;
+    
+    const encodedText = encodeURIComponent(message);
+    window.open(`https://wa.me/${phoneNumber}?text=${encodedText}`, '_blank');
   };
 
   return (
-    <section id="menu" className="py-16 md:py-20 bg-white">
+    <section id="menu" className="py-16 md:py-24 bg-[#FAF8F5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center mb-8">
+        <div className="flex flex-col items-center text-center mb-10">
           <h2 className="font-display font-extrabold text-brand-green text-3xl sm:text-4xl tracking-tight">
             Our Menu
           </h2>
@@ -165,54 +282,55 @@ export default function MenuSection() {
           </p>
         </div>
 
-        {/* Filters and Search Container */}
-        <div className="sticky top-[68px] z-30 bg-white pt-4 pb-3 border-b border-brand-green/5 shadow-sm -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 max-w-7xl mx-auto">
+        {/* Filters and Search Container (Height reduced, sticky, compact layouts) */}
+        <div className="sticky top-[68px] z-30 bg-[#FAF8F5]/90 backdrop-blur-md pt-2.5 pb-2.5 border-b border-brand-green/5 shadow-sm -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-3.5 max-w-7xl mx-auto">
+            
             {/* Veg / Non-Veg Segmented Control */}
-            <div className="flex bg-brand-cream/40 p-1 rounded-full border border-brand-green/5 self-center md:self-auto shrink-0 shadow-inner">
+            <div className="flex bg-white p-1 rounded-full border border-black/5 self-center md:self-auto shrink-0 shadow-sm">
               <button
                 onClick={() => setFilterType('all')}
-                className={`px-5 py-2 rounded-full font-body text-xs font-bold transition-all duration-200 ${
+                className={`px-4 py-1.5 rounded-full font-body text-xs font-bold transition-all duration-200 ${
                   filterType === 'all'
                     ? 'bg-brand-green text-white shadow-sm'
                     : 'text-brand-charcoal/75 hover:text-brand-green'
                 }`}
               >
-                All Dishes
+                All
               </button>
               <button
                 onClick={() => setFilterType('veg')}
-                className={`px-5 py-2 rounded-full font-body text-xs font-bold transition-all duration-200 flex items-center gap-1.5 ${
+                className={`px-4 py-1.5 rounded-full font-body text-xs font-bold transition-all duration-200 flex items-center gap-1 ${
                   filterType === 'veg'
                     ? 'bg-green-600 text-white shadow-sm'
                     : 'text-brand-charcoal/75 hover:text-green-600'
                 }`}
               >
-                <span className="w-2 h-2 rounded-full bg-green-500 block border border-white" />
-                Pure Veg
+                <span className="w-1.5 h-1.5 rounded-full bg-green-500 block border border-white" />
+                Veg
               </button>
               <button
                 onClick={() => setFilterType('non-veg')}
-                className={`px-5 py-2 rounded-full font-body text-xs font-bold transition-all duration-200 flex items-center gap-1.5 ${
+                className={`px-4 py-1.5 rounded-full font-body text-xs font-bold transition-all duration-200 flex items-center gap-1 ${
                   filterType === 'non-veg'
                     ? 'bg-brand-red text-white shadow-sm'
                     : 'text-brand-charcoal/75 hover:text-brand-red'
                 }`}
               >
-                <span className="w-2 h-2 rounded-full bg-brand-red block border border-white" />
+                <span className="w-1.5 h-1.5 rounded-full bg-brand-red block border border-white" />
                 Non-Veg
               </button>
             </div>
 
-            {/* Search Box */}
-            <div className="relative w-full md:max-w-xs shadow-sm rounded-full overflow-hidden border border-brand-green/10 hover:border-brand-green/25 focus-within:border-brand-gold transition-colors duration-250 bg-brand-cream/10">
+            {/* Search Box (Increased spacing, rounded-full) */}
+            <div className="relative w-full md:max-w-xs shadow-sm rounded-full overflow-hidden border border-black/5 hover:border-brand-green/20 focus-within:border-brand-gold transition-colors duration-250 bg-white">
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-brand-charcoal/40" />
               <input
                 type="text"
-                placeholder="Search dish name or flavor..."
+                placeholder="Search menu..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-11 pr-5 py-2.5 bg-transparent font-body text-sm outline-none text-brand-charcoal placeholder-brand-charcoal/40"
+                className="w-full pl-11 pr-5 py-2 bg-transparent font-body text-xs sm:text-sm outline-none text-brand-charcoal placeholder-brand-charcoal/40"
                 aria-label="Search menu items"
               />
             </div>
@@ -221,20 +339,20 @@ export default function MenuSection() {
           {/* Sticky Horizontally Scrolling Category Pills (Below Filters) */}
           <div
             ref={categoriesNavRef}
-            className="flex items-center gap-2 overflow-x-auto no-scrollbar py-3 mt-3 -mx-4 px-4 scroll-smooth"
+            className="flex items-center gap-2 overflow-x-auto no-scrollbar py-2 mt-2 -mx-4 px-4 scroll-smooth"
           >
             {filteredMenu.map((category) => (
               <button
                 key={category.id}
                 id={`pill-${category.id}`}
                 onClick={() => handleCategoryClick(category.id)}
-                className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-full border text-xs font-bold whitespace-nowrap transition-all duration-200 shrink-0 ${
+                className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border text-[11px] font-bold whitespace-nowrap transition-all duration-200 shrink-0 ${
                   activeCategory === category.id
-                    ? 'active-pill shadow-sm'
-                    : 'bg-white border-brand-green/10 text-brand-charcoal/80 hover:border-brand-green/30 hover:text-brand-green'
+                    ? 'active-pill shadow-sm border-brand-green bg-brand-green text-white'
+                    : 'bg-white border-black/5 text-brand-charcoal/85 hover:border-brand-green/30 hover:text-brand-green'
                 }`}
               >
-                {categoryIcons[category.id] || <Utensils className="w-3.5 h-3.5" />}
+                {categoryIcons[category.id] || <Utensils className="w-3 h-3" />}
                 {category.name}
               </button>
             ))}
@@ -242,70 +360,136 @@ export default function MenuSection() {
         </div>
 
         {/* Menu Listings */}
-        <div className="mt-6 md:mt-8 space-y-10 md:space-y-16">
+        <div className="mt-12 space-y-16 md:space-y-24">
           {filteredMenu.length > 0 ? (
             filteredMenu.map((category) => (
               <div 
                 key={category.id} 
                 id={category.id} 
-                className="scroll-mt-36 border-b border-brand-green/5 pb-8 md:pb-12 last:border-0 last:pb-0"
+                className="scroll-mt-36 border-b border-black/5 pb-12 last:border-0 last:pb-0"
               >
                 {/* Category Header */}
-                <div className="flex items-center gap-2.5 md:gap-3 mb-2">
-                  <div className="p-2 md:p-2.5 rounded-lg bg-brand-green/5 text-brand-gold shrink-0">
-                    {categoryIcons[category.id] || <Utensils className="w-5 h-5" />}
-                  </div>
-                  <div>
-                    <h3 className="font-display font-extrabold text-brand-green text-lg md:text-2xl leading-none">
+                <div className="flex flex-col items-start mb-8">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2.5 rounded-xl bg-brand-green/5 text-brand-gold shrink-0">
+                      {categoryIcons[category.id] || <Utensils className="w-6 h-6" />}
+                    </div>
+                    <h3 className="font-display font-extrabold text-[#0A4225] text-2xl md:text-[32px] leading-none tracking-tight">
                       {category.name}
                     </h3>
-                    <p className="font-body text-brand-charcoal/60 text-xs sm:text-sm mt-1.5">
-                      {category.description}
-                    </p>
                   </div>
+                  {/* Accent line under category */}
+                  <div className="h-[3px] w-14 bg-gradient-to-r from-brand-gold via-green-600 to-transparent rounded-full mt-3 mb-2" />
+                  <p className="font-body text-brand-charcoal/70 text-sm max-w-2xl leading-relaxed mt-1">
+                    {category.description}
+                  </p>
                 </div>
 
-                {/* Items Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 mt-4 md:mt-6">
-                  {category.items.map((item, idx) => (
-                    <div
-                      key={idx}
-                      className="group relative flex items-center justify-between p-3.5 md:p-4 rounded-xl md:rounded-2xl border-2 border-green-500 hover:border-brand-gold bg-[#129255] shadow-[0_0_10px_rgba(34,197,94,0.45)] hover:shadow-[0_0_18px_rgba(218,165,32,0.65)] transition-all duration-250 gap-4"
-                    >
-                      {/* Left Side: Name and Badges */}
-                      <div className="flex flex-col items-start gap-1.5 min-w-0">
-                        <div className="flex items-center gap-2 flex-wrap">
-                          <h4 className="font-display font-bold text-white text-base leading-snug group-hover:text-white transition-colors duration-200">
-                            {item.name}
-                          </h4>
+                {/* Items Grid (Desktop: 4, Laptop: 3, Tablet: 2, Mobile: 1) */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
+                  {category.items.map((item, idx) => {
+                    const badges = getDishBadges(item);
+                    return (
+                      <div
+                        key={idx}
+                        className="group relative flex flex-col justify-between rounded-[20px] bg-white border border-black/5 shadow-sm hover:shadow-[0_12px_24px_rgba(10,66,37,0.12)] hover:-translate-y-1.5 transition-all duration-300 overflow-hidden"
+                      >
+                        {/* Top: Cover Food Image (16:9 aspect ratio) */}
+                        <div className="relative aspect-[16/9] w-full overflow-hidden bg-black/5 shrink-0">
+                          <Image
+                            src={getDishImage(item.name, category.id)}
+                            alt={item.name}
+                            fill
+                            sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                            className="object-cover group-hover:scale-[1.03] transition-transform duration-300"
+                            loading="lazy"
+                          />
                           
-                          {/* Veg/Non-Veg FSSAI Symbol */}
-                          <span 
-                            className={`flex-shrink-0 flex items-center justify-center w-4 h-4 border-2 p-0.5 rounded-sm bg-white ${
-                              item.type === 'veg' ? 'border-green-600' : 'border-brand-red'
-                            }`}
-                            title={item.type === 'veg' ? 'Pure Veg' : 'Non Veg'}
-                          >
-                            <span className={`w-1.5 h-1.5 rounded-full block ${
-                              item.type === 'veg' ? 'bg-green-600' : 'bg-brand-red'
-                            }`} />
-                          </span>
+                          {/* Veg/Non-Veg FSSAI Badge Overlay */}
+                          <div className="absolute top-3.5 right-3.5 z-10 p-1 rounded-md bg-white/95 shadow-sm border border-black/5 flex items-center justify-center">
+                            <span 
+                              className={`flex-shrink-0 flex items-center justify-center w-3.5 h-3.5 border-2 p-0.5 rounded-sm bg-white ${
+                                item.type === 'veg' ? 'border-green-600' : 'border-brand-red'
+                              }`}
+                            >
+                              <span className={`w-1.5 h-1.5 rounded-full block ${
+                                item.type === 'veg' ? 'bg-green-600' : 'bg-brand-red'
+                              }`} />
+                            </span>
+                          </div>
                         </div>
 
-                        {/* Bestseller Badge */}
-                        {item.bestseller && (
-                          <span className="inline-flex items-center gap-1 text-[9px] md:text-[10px] font-bold text-white font-body tracking-wider uppercase bg-white/10 px-2 py-0.5 rounded border border-white/20">
-                            ★ Bestseller
-                          </span>
-                        )}
-                      </div>
+                        {/* Middle: Content Section */}
+                        <div className="flex flex-col flex-grow p-5 justify-between">
+                          <div>
+                            {/* Dish Name */}
+                            <h4 className="font-display font-extrabold text-[#0A4225] text-lg sm:text-[22px] leading-snug group-hover:text-brand-green transition-colors duration-200">
+                              {item.name}
+                            </h4>
 
-                      {/* Right Side: Pricing */}
-                      <div className="flex-shrink-0 flex justify-end">
-                        {renderPrice(item.price)}
+                            {/* Dish Description */}
+                            <p className="font-body text-brand-charcoal/70 text-xs sm:text-[15px] mt-2 leading-relaxed font-medium">
+                              {item.description}
+                            </p>
+                          </div>
+
+                          <div>
+                            {/* Dynamic Badges Row */}
+                            {badges.length > 0 && (
+                              <div className="flex flex-wrap gap-1.5 mt-3">
+                                {badges.map((badge, bIdx) => (
+                                  <span
+                                    key={bIdx}
+                                    className={`inline-flex items-center text-[10px] sm:text-[12px] font-semibold px-2.5 py-0.5 rounded-full border ${badge.className}`}
+                                  >
+                                    {badge.text}
+                                  </span>
+                                ))}
+                              </div>
+                            )}
+
+                            {/* Variant Prices List (If applicable) */}
+                            {typeof item.price !== 'number' && (
+                              <div className="flex flex-wrap gap-1.5 mt-3.5">
+                                {Object.entries(item.price).map(([key, value]) => {
+                                  if (value === undefined || isNaN(value)) return null;
+                                  return (
+                                    <button
+                                      key={key}
+                                      onClick={() => handleOrderClick(item, key)}
+                                      className="inline-flex items-center bg-brand-gold/10 border border-brand-gold/20 text-[#0A4225] font-body font-bold text-[10px] sm:text-[11px] px-2 py-0.5 rounded-full hover:scale-105 hover:bg-brand-gold hover:text-[#0A4225] transition-all duration-200 capitalize select-none"
+                                    >
+                                      {key}: <span className="font-extrabold ml-0.5 text-brand-green">₹{value}</span>
+                                    </button>
+                                  );
+                                })}
+                              </div>
+                            )}
+                          </div>
+                        </div>
+
+                        {/* Bottom: Price & Add Button Row */}
+                        <div className="flex items-center justify-between gap-3 p-5 pt-3 border-t border-black/5 bg-[#FCFBF9] shrink-0 mt-auto">
+                          <div className="flex flex-col">
+                            <span className="text-[10px] text-brand-charcoal/50 font-bold uppercase tracking-wider">Price</span>
+                            <span className="font-display font-extrabold text-[#0A4225] text-lg sm:text-[20px] leading-tight">
+                              {typeof item.price === 'number' 
+                                ? `₹${item.price}` 
+                                : `₹${Math.min(...Object.values(item.price).filter((v): v is number => typeof v === 'number'))}+`
+                              }
+                            </span>
+                          </div>
+                          
+                          <button
+                            onClick={() => handleOrderClick(item)}
+                            className="inline-flex items-center gap-1.5 bg-gradient-to-r from-[#094A28] to-[#1F8B4C] hover:from-[#1F8B4C] hover:to-[#094A28] text-white rounded-full px-4.5 py-2 text-xs font-bold transition-all duration-200 hover:scale-105 hover:shadow-[0_0_12px_rgba(244,197,66,0.6)] shadow-sm select-none"
+                          >
+                            {typeof item.price === 'number' ? 'Add' : 'Customize'}
+                          </button>
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
             ))
@@ -317,16 +501,16 @@ export default function MenuSection() {
               </div>
               <p className="font-display font-bold text-brand-green text-lg">No matching dishes found</p>
               <p className="font-body text-brand-charcoal/60 text-sm mt-2 max-w-xs">
-                Try searching for another flavor or resetting the veg/non-veg filter.
+                Try searching for another flavor or resetting the filters.
               </p>
               <button
                 onClick={() => {
                   setFilterType('all');
                   setSearchQuery('');
                 }}
-                className="mt-5 px-5 py-2.5 rounded-full bg-brand-green text-white font-body font-bold text-xs hover:bg-brand-green/90 transition-colors"
+                className="mt-4 px-5 py-2 rounded-full border border-brand-green text-brand-green font-body font-bold text-xs hover:bg-brand-green hover:text-white transition-colors"
               >
-                Reset Filters
+                Clear Filters
               </button>
             </div>
           )}

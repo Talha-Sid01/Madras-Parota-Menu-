@@ -77,7 +77,7 @@ export default function SignatureDishes() {
   }, [activeIndex]);
 
   return (
-    <section id="bestsellers" className="py-16 md:py-24 bg-white overflow-hidden">
+    <section id="bestsellers" className="py-16 md:py-24 bg-[#FAF8F5] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -86,7 +86,7 @@ export default function SignatureDishes() {
             <Sparkles className="w-4 h-4 fill-current" />
             <span>Customer Favourites</span>
           </div>
-          <h2 className="font-display font-extrabold text-brand-green text-3xl sm:text-4xl tracking-tight">
+          <h2 className="font-display font-extrabold text-[#0A4225] text-3xl sm:text-4xl tracking-tight">
             Signature Dishes
           </h2>
           <div className="h-1 w-12 bg-brand-gold rounded-full mt-4" />
@@ -105,17 +105,17 @@ export default function SignatureDishes() {
             <motion.div
               key={index}
               ref={(el) => { itemRefs.current[index] = el; }}
-              className={`flex flex-col flex-shrink-0 w-[270px] sm:w-[310px] h-[350px] rounded-2xl overflow-hidden border-2 bg-[#129255] transition-all duration-500 select-none scroll-snap-align-center ${
+              className={`flex flex-col flex-shrink-0 w-[270px] sm:w-[310px] h-[350px] rounded-2xl overflow-hidden border-2 bg-white transition-all duration-500 select-none scroll-snap-align-center ${
                 activeIndex === index
                   ? 'border-brand-gold shadow-[0_0_22px_rgba(218,165,32,0.8)] scale-105 opacity-100 z-10'
-                  : 'border-green-500 shadow-[0_0_8px_rgba(34,197,94,0.3)] opacity-40 scale-95'
+                  : 'border-black/5 shadow-[0_4px_12px_rgba(0,0,0,0.03)] opacity-40 scale-95'
               }`}
               style={{
                 scrollSnapAlign: 'center'
               }}
             >
               {/* Image Container */}
-              <div className="relative w-full h-[250px] overflow-hidden">
+              <div className="relative w-full h-[250px] overflow-hidden bg-black/5">
                 <Image
                   src={dish.imageUrl}
                   alt={dish.alt}
@@ -128,7 +128,7 @@ export default function SignatureDishes() {
 
               {/* Text Content (No Pricing) */}
               <div className="flex flex-col justify-center items-center flex-grow p-4 text-center">
-                <h3 className="font-display font-bold text-white text-base sm:text-lg leading-snug">
+                <h3 className="font-display font-bold text-[#0A4225] text-base sm:text-lg leading-snug">
                   {dish.name}
                 </h3>
                 {activeIndex === index && (
