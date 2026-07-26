@@ -105,15 +105,12 @@ export default function SignatureDishes() {
             <motion.div
               key={index}
               ref={(el) => { itemRefs.current[index] = el; }}
-              className={`flex flex-col flex-shrink-0 w-[270px] sm:w-[310px] h-[350px] rounded-2xl overflow-hidden border-2 transition-all duration-500 select-none scroll-snap-align-center ${
+              className={`flex flex-col flex-shrink-0 w-[270px] sm:w-[310px] h-[350px] rounded-2xl overflow-hidden border-2 bg-[#129255] transition-all duration-500 select-none scroll-snap-align-center ${
                 activeIndex === index
                   ? 'border-brand-gold shadow-[0_0_22px_rgba(218,165,32,0.8)] scale-105 opacity-100 z-10'
                   : 'border-green-500 shadow-[0_0_8px_rgba(34,197,94,0.3)] opacity-40 scale-95'
               }`}
               style={{
-                backgroundImage: "linear-gradient(rgba(12, 60, 38, 0.5), rgba(12, 60, 38, 0.65)), url('/images/menu_item_bg.png')",
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
                 scrollSnapAlign: 'center'
               }}
             >
