@@ -21,21 +21,21 @@ import {
 } from 'lucide-react';
 
 const categoryIcons: { [key: string]: React.ReactNode } = {
-  'parota-rolls': <UtensilsCrossed className="w-4.5 h-4.5 sm:w-5 sm:h-5" />,
-  'parota-gravy-nonveg': <Layers className="w-4.5 h-4.5 sm:w-5 sm:h-5" />,
-  'kothu-parota': <Layers className="w-4.5 h-4.5 sm:w-5 sm:h-5" />,
-  'egg-chicken-omelette': <Flame className="w-4.5 h-4.5 sm:w-5 sm:h-5" />,
-  'starters-gravy': <Flame className="w-4.5 h-4.5 sm:w-5 sm:h-5" />,
-  'omelette-parota': <Egg className="w-4.5 h-4.5 sm:w-5 sm:h-5" />,
-  'chefs-specials': <Sparkles className="w-4.5 h-4.5 sm:w-5 sm:h-5" />,
-  'biryani': <Sparkles className="w-4.5 h-4.5 sm:w-5 sm:h-5" />,
-  'extras-sides': <PlusCircle className="w-4.5 h-4.5 sm:w-5 sm:h-5" />,
-  'dosa-nonveg': <ChefHat className="w-4.5 h-4.5 sm:w-5 sm:h-5" />,
-  'parota-veg-gravy': <Leaf className="w-4.5 h-4.5 sm:w-5 sm:h-5" />,
-  'idli-vada': <Disc className="w-4.5 h-4.5 sm:w-5 sm:h-5" />,
-  'uttappam': <GridIcon className="w-4.5 h-4.5 sm:w-5 sm:h-5" />,
-  'dosa-veg': <Compass className="w-4.5 h-4.5 sm:w-5 sm:h-5" />,
-  'beverages': <Coffee className="w-4.5 h-4.5 sm:w-5 sm:h-5" />
+  'parota-rolls': <UtensilsCrossed className="w-5 h-5" />,
+  'parota-gravy-nonveg': <Layers className="w-5 h-5" />,
+  'kothu-parota': <Layers className="w-5 h-5" />,
+  'egg-chicken-omelette': <Flame className="w-5 h-5" />,
+  'starters-gravy': <Flame className="w-5 h-5" />,
+  'omelette-parota': <Egg className="w-5 h-5" />,
+  'chefs-specials': <Sparkles className="w-5 h-5" />,
+  'biryani': <Sparkles className="w-5 h-5" />,
+  'extras-sides': <PlusCircle className="w-5 h-5" />,
+  'dosa-nonveg': <ChefHat className="w-5 h-5" />,
+  'parota-veg-gravy': <Leaf className="w-5 h-5" />,
+  'idli-vada': <Disc className="w-5 h-5" />,
+  'uttappam': <GridIcon className="w-5 h-5" />,
+  'dosa-veg': <Compass className="w-5 h-5" />,
+  'beverages': <Coffee className="w-5 h-5" />
 };
 
 export default function MenuSection() {
@@ -139,14 +139,14 @@ export default function MenuSection() {
         </div>
 
         {/* Filters and Search Container */}
-        <div className="sticky top-[68px] z-30 bg-brand-green-dark backdrop-blur-md pt-3.5 pb-3.5 border-b border-brand-gold/10 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+        <div className="sticky top-[68px] z-30 bg-brand-green-dark backdrop-blur-md pt-4 pb-3.5 border-b border-brand-gold/10 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 max-w-7xl mx-auto">
             
             {/* Veg / Non-Veg Segmented Control */}
             <div className="flex bg-white/5 p-1.5 rounded-full border border-white/10 self-center md:self-auto shrink-0 shadow-inner">
               <button
                 onClick={() => setFilterType('all')}
-                className={`px-6 py-2 sm:px-7 sm:py-2.5 rounded-full font-body text-sm sm:text-base font-extrabold transition-all duration-200 cursor-pointer ${
+                className={`px-5 py-2.5 sm:px-6 sm:py-3 rounded-full font-body text-xs sm:text-sm md:text-base font-extrabold transition-all duration-200 cursor-pointer ${
                   filterType === 'all'
                     ? 'bg-brand-gold text-brand-green-dark shadow-sm'
                     : 'text-white/80 hover:text-white'
@@ -156,7 +156,7 @@ export default function MenuSection() {
               </button>
               <button
                 onClick={() => setFilterType('veg')}
-                className={`px-6 py-2 sm:px-7 sm:py-2.5 rounded-full font-body text-sm sm:text-base font-extrabold transition-all duration-200 flex items-center gap-1.5 cursor-pointer ${
+                className={`px-5 py-2.5 sm:px-6 sm:py-3 rounded-full font-body text-xs sm:text-sm md:text-base font-extrabold transition-all duration-200 flex items-center gap-1.5 cursor-pointer ${
                   filterType === 'veg'
                     ? 'bg-green-700 text-white shadow-sm'
                     : 'text-white/85 hover:text-green-400'
@@ -167,7 +167,7 @@ export default function MenuSection() {
               </button>
               <button
                 onClick={() => setFilterType('non-veg')}
-                className={`px-6 py-2 sm:px-7 sm:py-2.5 rounded-full font-body text-sm sm:text-base font-extrabold transition-all duration-200 flex items-center gap-1.5 cursor-pointer ${
+                className={`px-5 py-2.5 sm:px-6 sm:py-3 rounded-full font-body text-xs sm:text-sm md:text-base font-extrabold transition-all duration-200 flex items-center gap-1.5 cursor-pointer ${
                   filterType === 'non-veg'
                     ? 'bg-brand-red text-white shadow-sm'
                     : 'text-white/85 hover:text-brand-red'
@@ -180,13 +180,13 @@ export default function MenuSection() {
 
             {/* Search Box */}
             <div className="relative w-full md:max-w-md shadow-inner rounded-full overflow-hidden border border-white/10 hover:border-brand-gold/30 focus-within:border-brand-gold/50 transition-all duration-300 bg-white/5">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/40" />
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/50" />
               <input
                 type="text"
                 placeholder="Search menu..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-12 pr-6 py-2.5 sm:py-3 bg-transparent font-body text-sm sm:text-base outline-none text-white placeholder-white/40 font-semibold"
+                className="w-full pl-12 pr-6 py-3 bg-transparent font-body text-sm sm:text-base md:text-lg outline-none text-white placeholder-white/50"
                 aria-label="Search menu items"
               />
             </div>
@@ -202,13 +202,13 @@ export default function MenuSection() {
                 key={category.id}
                 id={`pill-${category.id}`}
                 onClick={() => handleCategoryClick(category.id)}
-                className={`inline-flex items-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 rounded-full border text-xs sm:text-sm font-extrabold whitespace-nowrap transition-all duration-300 shrink-0 cursor-pointer ${
+                className={`inline-flex items-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 rounded-full border text-xs sm:text-sm md:text-base font-extrabold whitespace-nowrap transition-all duration-300 shrink-0 cursor-pointer ${
                   activeCategory === category.id
-                    ? 'border-brand-gold bg-gradient-to-r from-brand-gold to-brand-gold-hover text-brand-green-dark shadow-[0_4px_12px_rgba(201,162,39,0.3)]'
+                    ? 'border-brand-gold bg-gradient-to-r from-brand-gold to-brand-gold-hover text-brand-green-dark shadow-[0_2px_12px_rgba(201,162,39,0.3)]'
                     : 'bg-white/5 border-white/10 text-white/80 hover:border-brand-gold hover:text-brand-gold hover:bg-white/10'
                 }`}
               >
-                {categoryIcons[category.id] || <Utensils className="w-4.5 h-4.5 sm:w-5 sm:h-5" />}
+                {categoryIcons[category.id] || <Utensils className="w-5 h-5" />}
                 {category.title}
               </button>
             ))}
