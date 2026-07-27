@@ -105,10 +105,10 @@ export default function SignatureDishes() {
             <motion.div
               key={index}
               ref={(el) => { itemRefs.current[index] = el; }}
-              className={`flex flex-col flex-shrink-0 w-[270px] sm:w-[310px] h-[350px] rounded-2xl overflow-hidden border transition-all duration-500 select-none scroll-snap-align-center ${
+              className={`flex flex-col flex-shrink-0 w-[270px] sm:w-[310px] h-[350px] rounded-2xl overflow-hidden border-2 transition-all duration-500 select-none scroll-snap-align-center ${
                 activeIndex === index
-                  ? 'border-brand-gold bg-brand-cream shadow-[0_15px_35px_rgba(201,162,39,0.22)] scale-105 opacity-100 z-10'
-                  : 'border-brand-gold/10 bg-white/40 shadow-[0_4px_12px_rgba(0,0,0,0.01)] opacity-40 scale-95'
+                  ? 'border-brand-gold bg-brand-cream shadow-[0_0_28px_rgba(201,162,39,0.5)] scale-105 opacity-100 z-10'
+                  : 'border-brand-gold/40 bg-white/40 shadow-[0_0_15px_rgba(201,162,39,0.2)] opacity-40 scale-95'
               }`}
               style={{
                 scrollSnapAlign: 'center'

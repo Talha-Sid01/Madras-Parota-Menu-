@@ -254,7 +254,7 @@ export default function MenuSection() {
                   {category.items.map((item, idx) => (
                     <div 
                       key={idx} 
-                      className="relative overflow-hidden rounded-2xl border border-brand-gold/20 bg-white text-brand-green-dark p-3.5 sm:p-4 grid grid-cols-12 items-center gap-3 shadow-[0_4px_15px_rgba(8,69,47,0.06)] hover:shadow-[0_12px_30px_rgba(8,69,47,0.2)] transition-all duration-300 ease-out hover:-translate-y-[6px] hover:scale-[1.02] hover:border-brand-gold/45"
+                      className="relative overflow-hidden rounded-2xl border-2 border-brand-gold/80 bg-white text-brand-green-dark p-3.5 sm:p-4 grid grid-cols-12 items-center gap-3 shadow-[0_0_18px_rgba(201,162,39,0.35)] hover:shadow-[0_0_30px_rgba(201,162,39,0.65)] hover:border-brand-gold transition-all duration-300 ease-out hover:-translate-y-[6px] hover:scale-[1.02]"
                     >
                       {/* Left: Item Details & Variants */}
                       <div className={`${
