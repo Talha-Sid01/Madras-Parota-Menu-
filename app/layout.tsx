@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, DM_Sans, Caveat } from "next/font/google";
+import { Playfair_Display, DM_Sans, Caveat } from "next/font/google";
 import "./globals.css";
 import SouthIndianBackground from "@/components/SouthIndianBackground";
 
-const bricolage = Bricolage_Grotesque({
+const playfair = Playfair_Display({
   variable: "--font-bricolage",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700", "800", "900"],
   display: "swap",
 });
 
@@ -103,7 +103,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${bricolage.variable} ${dmSans.variable} ${caveat.variable} h-full antialiased`}
+      className={`${playfair.variable} ${dmSans.variable} ${caveat.variable} h-full antialiased`}
     >
       <head>
         <script

@@ -2,7 +2,7 @@ import React from 'react';
 import { Phone, MessageSquare, Compass } from 'lucide-react';
 
 export default function MobileActionBar() {
-  const directionsUrl = "https://www.google.com/maps/search/?api=1&query=New+Link+Rd%2C+opp+Evershine+Mall%2C+Malad%2C+Chincholi+Bunder%2C+Malad+West%2C+Mumbai%2C+Maharashtra+400064";
+  const directionsUrl = "https://www.google.com/maps/search/?api=1&query=New+Link+Rd%2C+opp+Evershine+Mall%2C+Malad%2C+Chincholi+Bunder%2C+Malad+West%2C+Mumbai+-+400064";
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-brand-green/10 shadow-[0_-4px_12px_rgba(0,0,0,0.06)] md:hidden">
@@ -10,7 +10,7 @@ export default function MobileActionBar() {
         
         {/* Call Button */}
         <a
-          href="tel:+917045714545"
+          href="tel:+917045794545"
           className="flex-1 flex flex-col items-center justify-center gap-1 bg-brand-green text-white font-body font-bold text-xs active:bg-brand-green/90 transition-colors"
         >
           <Phone className="w-5 h-5 fill-current" />
@@ -22,7 +22,7 @@ export default function MobileActionBar() {
 
         {/* WhatsApp Button */}
         <a
-          href="https://wa.me/917045714545"
+          href="https://wa.me/917045794545"
           target="_blank"
           rel="noopener noreferrer"
           className="flex-1 flex flex-col items-center justify-center gap-1 bg-green-600 text-white font-body font-bold text-xs active:bg-green-700 transition-colors"

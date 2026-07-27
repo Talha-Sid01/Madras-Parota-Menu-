@@ -4,6 +4,7 @@ import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Highlights from '@/components/Highlights';
 import SignatureDishes from '@/components/SignatureDishes';
+import GoogleReviewBanner from '@/components/GoogleReviewBanner';
 import MenuSection from '@/components/MenuSection';
 import OurStory from '@/components/OurStory';
 import FindUs from '@/components/FindUs';
@@ -28,6 +29,9 @@ export default function Home() {
 
         {/* 4 Featured Signature items with stand-in photos */}
         <SignatureDishes />
+
+        {/* Click to Google Review Banner */}
+        <GoogleReviewBanner />
 
         {/* Scroll-spy Menu, Search, Category Navigation, and variants pricing */}
         <MenuSection />

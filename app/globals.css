@@ -18,19 +18,21 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #2a2a2a;
+  --background: #FFF9EF; /* Warm Ivory as base canvas */
+  --foreground: #2A2A2A;
 }
 
 @theme {
-  --color-brand-green: #0C3C26;
-  --color-brand-gold: #DAA520;
-  --color-brand-gold-hover: #E5A93B;
+  --color-brand-green: #0B5D3D; /* Deep Emerald Green */
+  --color-brand-green-dark: #08452F; /* Dark Temple Green */
+  --color-brand-gold: #C9A227; /* Antique Gold */
+  --color-brand-gold-hover: #E5B632;
   --color-brand-red: #9C1A1A;
-  --color-brand-cream: #FAF8F5;
+  --color-brand-cream: #FFF9EF; /* Warm Ivory */
+  --color-brand-sandalwood: #F7F1E5; /* Sandalwood Beige */
   --color-brand-charcoal: #2A2A2A;
 
-  --font-display: var(--font-bricolage), sans-serif;
+  --font-display: var(--font-bricolage), serif; /* Cormorant Garamond serif */
   --font-body: var(--font-dm-sans), sans-serif;
   --font-accent: var(--font-caveat), cursive;
 }
@@ -189,13 +191,26 @@ body {
 }
 
 /* Translucent Section Overrides for Readability and Depth */
-main section,
 section#home,
 section#bestsellers,
-section#menu,
 section#about,
 section#location {
-  background-color: rgba(254, 252, 248, 0.94) !important;
+  background-color: rgba(255, 249, 239, 0.94) !important;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(247, 241, 229, 0.6) 0%, transparent 80%),
+    linear-gradient(45deg, rgba(201, 162, 39, 0.008) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(201, 162, 39, 0.008) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(201, 162, 39, 0.008) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(201, 162, 39, 0.008) 75%);
+  background-size: 100% 100%, 30px 30px, 30px 30px, 30px 30px, 30px 30px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: background-color 0.3s ease;
+  border-bottom: 1px solid rgba(201, 162, 39, 0.1);
+}
+
+section#menu {
+  background-color: #08452F !important; /* Dark Temple Green background */
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   transition: background-color 0.3s ease;
@@ -203,22 +218,38 @@ section#location {
 
 /* Special styling for Highlights section wrapper to sit lighter */
 section.border-y.border-brand-green\/10.bg-brand-cream\/10 {
-  background-color: rgba(254, 252, 248, 0.88) !important;
+  background-color: rgba(255, 249, 239, 0.88) !important;
+  background-image: radial-gradient(circle at 50% 50%, rgba(247, 241, 229, 0.4) 0%, transparent 90%);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
 
 /* Ensure sticky categories/filters bar stays highly readable and blends in */
 #menu .sticky {
-  background-color: rgba(254, 252, 248, 0.96) !important;
+  background-color: #08452F !important;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(12, 60, 38, 0.08);
+  border-bottom: 1px solid rgba(201, 162, 39, 0.2);
 }
 
 /* Ensure navbar blends perfectly when scrolled */
 nav.fixed.z-40.bg-brand-green\/95 {
-  background-color: rgba(12, 60, 38, 0.96) !important;
+  background-color: rgba(8, 69, 47, 0.95) !important; /* Frosted Temple Green */
+  border-bottom: 1px solid rgba(201, 162, 39, 0.15);
+}
+
+/* Subtle Floating Animation */
+@keyframes floatSubtle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+.animate-float-subtle {
+  animation: floatSubtle 7s ease-in-out infinite alternate;
 }
 
 /* Fine-tune padding / margins for better edge framing */
@@ -227,8 +258,8 @@ nav.fixed.z-40.bg-brand-green\/95 {
     border-radius: 24px;
     margin-left: 24px;
     margin-right: 24px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
-    border: 1px solid rgba(12, 60, 38, 0.04);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(201, 162, 39, 0.05);
   }
   /* Keep spacing consistent */
   main {

@@ -49,8 +49,8 @@ export default function Navbar() {
       <nav
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           isScrolled 
-            ? 'bg-brand-green/95 shadow-lg backdrop-blur-md py-2 border-b border-brand-gold/20' 
-            : 'bg-gradient-to-b from-black/50 to-transparent py-4'
+            ? 'bg-brand-green-dark/95 shadow-[0_4px_30px_rgba(0,0,0,0.15)] backdrop-blur-md py-2 border-b border-brand-gold/20' 
+            : 'bg-gradient-to-b from-black/60 to-transparent py-4'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -58,7 +58,7 @@ export default function Navbar() {
           <a
             href="#home"
             onClick={(e) => handleLinkClick(e, '#home')}
-            className="flex items-center gap-3 group"
+            className="flex items-center gap-3 group animate-float-subtle"
           >
             <div className="relative w-12 h-12 overflow-hidden transition-transform duration-300 group-hover:scale-105">
               <Image
@@ -85,7 +85,7 @@ export default function Navbar() {
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleLinkClick(e, link.href)}
-                className="font-body text-sm font-medium text-white/90 hover:text-brand-gold transition-colors duration-200"
+                className="relative font-body text-sm font-medium text-white/90 hover:text-brand-gold transition-colors duration-300 py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-brand-gold after:transition-all after:duration-300 hover:after:w-full"
               >
                 {link.name}
               </a>
@@ -95,8 +95,8 @@ export default function Navbar() {
           {/* Call Now Button */}
           <div className="hidden md:block">
             <a
-              href="tel:+917045714545"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-brand-gold text-brand-green font-body font-bold text-sm hover:bg-brand-gold-hover hover:scale-105 active:scale-95 transition-all duration-200 shadow-md"
+              href="tel:+917045794545"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-brand-gold to-brand-gold-hover hover:from-brand-gold-hover hover:to-brand-gold text-brand-green-dark font-body font-bold text-sm hover:scale-105 active:scale-95 transition-all duration-300 shadow-[0_0_12px_rgba(201,162,39,0.25)] hover:shadow-[0_0_20px_rgba(201,162,39,0.4)] border border-brand-gold/30"
             >
               <Phone className="w-4 h-4 fill-current" />
               Call Now
@@ -119,7 +119,7 @@ export default function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       <div
-        className={`fixed inset-y-0 right-0 z-40 w-64 bg-brand-green shadow-xl border-l border-brand-gold/20 transform transition-transform duration-350 ease-out md:hidden ${
+        className={`fixed inset-y-0 right-0 z-40 w-64 bg-brand-green-dark/98 backdrop-blur-md shadow-[0_0_30px_rgba(0,0,0,0.4)] border-l border-brand-gold/20 transform transition-transform duration-350 ease-out md:hidden ${
           isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
@@ -143,8 +143,8 @@ export default function Navbar() {
               </a>
             ))}
             <a
-              href="tel:+917045714545"
-              className="inline-flex items-center justify-center gap-2 w-full mt-4 px-5 py-3 rounded-full bg-brand-gold text-brand-green font-body font-bold hover:bg-brand-gold-hover transition-colors duration-200"
+              href="tel:+917045794545"
+              className="inline-flex items-center justify-center gap-2 w-full mt-4 px-5 py-3 rounded-full bg-gradient-to-r from-brand-gold to-brand-gold-hover hover:from-brand-gold-hover hover:to-brand-gold text-brand-green-dark font-body font-bold shadow-[0_0_12px_rgba(201,162,39,0.25)] hover:scale-[1.02] active:scale-95 transition-all duration-300"
             >
               <Phone className="w-4 h-4 fill-current" />
               Call Now
@@ -157,7 +157,7 @@ export default function Navbar() {
       {isMobileMenuOpen && (
         <div
           onClick={() => setIsMobileMenuOpen(false)}
-          className="fixed inset-0 z-30 bg-black/55 md:hidden"
+          className="fixed inset-0 z-30 bg-black/60 md:hidden"
         />
       )}
     </>

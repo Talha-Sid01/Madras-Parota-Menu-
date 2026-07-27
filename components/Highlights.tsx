@@ -26,22 +26,25 @@ export default function Highlights() {
   ];
 
   return (
-    <section className="border-y border-brand-green/10 bg-brand-cream/10 py-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="border-y border-brand-green/10 bg-brand-cream/10 py-12 relative overflow-hidden">
+      {/* Decorative center spotlight */}
+      <div className="absolute inset-0 bg-radial-gradient from-brand-gold/5 via-transparent to-transparent pointer-events-none" />
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {features.map((item, idx) => (
             <div 
               key={idx} 
-              className="flex items-start gap-4 p-4 rounded-xl transition-all duration-350 hover:bg-white hover:shadow-sm"
+              className="flex items-start gap-4 p-5 rounded-2xl border border-brand-gold/10 bg-brand-sandalwood/40 transition-all duration-300 hover:-translate-y-1 hover:bg-brand-cream hover:shadow-[0_10px_30px_rgba(201,162,39,0.08)] hover:border-brand-gold/30"
             >
-              <div className="flex-shrink-0 p-3 rounded-xl bg-brand-green/5 flex items-center justify-center">
+              <div className="flex-shrink-0 p-3 rounded-xl bg-brand-green-dark/5 border border-brand-gold/15 flex items-center justify-center">
                 {item.icon}
               </div>
               <div>
-                <h3 className="font-display font-bold text-brand-green text-base leading-tight">
+                <h3 className="font-display font-bold text-brand-green-dark text-base leading-tight">
                   {item.title}
                 </h3>
-                <p className="font-body text-brand-charcoal/70 text-xs sm:text-sm mt-1 leading-normal">
+                <p className="font-body text-brand-charcoal/75 text-xs sm:text-sm mt-1.5 leading-normal">
                   {item.description}
                 </p>
               </div>
