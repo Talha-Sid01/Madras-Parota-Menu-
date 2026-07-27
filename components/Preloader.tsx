@@ -115,7 +115,7 @@ export default function Preloader() {
                     fill="transparent" 
                   />
                   
-                  {/* Outer Fast Ring - Clockwise */}
+                  {/* Single Glowing Rotator Ring - Clockwise */}
                   <motion.circle
                     cx="50"
                     cy="50"
@@ -123,31 +123,27 @@ export default function Preloader() {
                     stroke="currentColor"
                     strokeWidth="2.5"
                     strokeLinecap="round"
-                    strokeDasharray="50 180"
+                    strokeDasharray="60 200"
                     fill="transparent"
                     filter="url(#gold-glow)"
                     animate={{ rotate: 360 }}
-                    transition={{ repeat: Infinity, duration: 2, ease: 'linear' }}
-                    style={{ originX: '50px', originY: '50px' }}
+                    transition={{ repeat: Infinity, duration: 2.2, ease: 'linear' }}
+                    style={{ transformOrigin: 'center' }}
                   />
                 </svg>
               )}
 
-              {/* Pulsing Logo in the center */}
+              {/* Spring Pop-out Logo in the center */}
               <motion.div
                 className="relative w-52 h-52 z-10 drop-shadow-[0_0_25px_rgba(201,162,39,0.35)]"
-                initial={{ opacity: 0, scale: 0 }}
-                animate={prefersReducedMotion ? { opacity: 1, scale: 1 } : { 
-                  opacity: 1, 
-                  scale: [0, 1.25, 0.94, 1.03, 1],
-                }}
+                initial={{ opacity: 0, scale: 0.1 }}
+                animate={{ opacity: 1, scale: 1 }}
                 transition={prefersReducedMotion ? { duration: 0.6 } : {
-                  opacity: { duration: 0.4 },
-                  scale: {
-                    duration: 1.2,
-                    ease: 'easeOut',
-                    times: [0, 0.4, 0.7, 0.9, 1]
-                  }
+                  type: 'spring',
+                  stiffness: 110,
+                  damping: 9,
+                  mass: 0.75,
+                  duration: 0.9
                 }}
               >
                 <Image
