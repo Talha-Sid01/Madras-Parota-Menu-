@@ -2,7 +2,7 @@ import React from 'react';
 import { Phone, MessageSquare, Compass } from 'lucide-react';
 
 export default function MobileActionBar() {
-  const directionsUrl = "https://www.google.com/maps/search/?api=1&query=New+Link+Rd%2C+opp+Evershine+Mall%2C+Malad%2C+Chincholi+Bunder%2C+Malad+West%2C+Mumbai+-+400064";
+  const directionsUrl = "https://share.google/5GnIQRnsboSGdbPpo";
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-brand-green/10 shadow-[0_-4px_12px_rgba(0,0,0,0.06)] md:hidden">

@@ -3,7 +3,7 @@ import { MapPin, Phone, MessageSquare, Compass } from 'lucide-react';
 
 export default function FindUs() {
   const address = "New Link Rd, opp Evershine Mall, Malad, Chincholi Bunder, Malad West, Mumbai - 400064";
-  const directionsUrl = "https://www.google.com/maps/search/?api=1&query=New+Link+Rd%2C+opp+Evershine+Mall%2C+Malad%2C+Chincholi+Bunder%2C+Malad+West%2C+Mumbai+-+400064";
+  const directionsUrl = "https://share.google/5GnIQRnsboSGdbPpo";
   
   // Maps embed URL based on query
   const mapEmbedUrl = "https://maps.google.com/maps?q=New%20Link%20Rd%2C%20opp%20Evershine%20Mall%2C%20Malad%2C%20Chincholi%20Bunder%2C%20Malad%20West%2C%20Mumbai%20-%20400064&t=&z=16&ie=UTF8&iwloc=&output=embed";

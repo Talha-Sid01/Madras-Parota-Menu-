@@ -4,7 +4,7 @@ import { Phone, MessageSquare, Compass, Instagram } from 'lucide-react';
 
 export default function Footer() {
   const address = "New Link Rd, opp Evershine Mall, Malad, Chincholi Bunder, Malad West, Mumbai - 400064";
-  const directionsUrl = "https://www.google.com/maps/search/?api=1&query=New+Link+Rd%2C+opp+Evershine+Mall%2C+Malad%2C+Chincholi+Bunder%2C+Malad+West%2C+Mumbai+-+400064";
+  const directionsUrl = "https://share.google/5GnIQRnsboSGdbPpo";
   const instagramUrl = "https://instagram.com/madrasparota";
   const whatsappUrl = "https://wa.me/917045794545";
 
