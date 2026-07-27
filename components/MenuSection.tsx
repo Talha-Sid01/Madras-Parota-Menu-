@@ -21,21 +21,21 @@ import {
 } from 'lucide-react';
 
 const categoryIcons: { [key: string]: React.ReactNode } = {
-  'parota-rolls': <UtensilsCrossed className="w-4 h-4" />,
-  'parota-gravy-nonveg': <Layers className="w-4 h-4" />,
-  'kothu-parota': <Layers className="w-4 h-4" />,
-  'egg-chicken-omelette': <Flame className="w-4 h-4" />,
-  'starters-gravy': <Flame className="w-4 h-4" />,
-  'omelette-parota': <Egg className="w-4 h-4" />,
-  'chefs-specials': <Sparkles className="w-4 h-4" />,
-  'biryani': <Sparkles className="w-4 h-4" />,
-  'extras-sides': <PlusCircle className="w-4 h-4" />,
-  'dosa-nonveg': <ChefHat className="w-4 h-4" />,
-  'parota-veg-gravy': <Leaf className="w-4 h-4" />,
-  'idli-vada': <Disc className="w-4 h-4" />,
-  'uttappam': <GridIcon className="w-4 h-4" />,
-  'dosa-veg': <Compass className="w-4 h-4" />,
-  'beverages': <Coffee className="w-4 h-4" />
+  'parota-rolls': <UtensilsCrossed className="w-[18px] h-[18px]" />,
+  'parota-gravy-nonveg': <Layers className="w-[18px] h-[18px]" />,
+  'kothu-parota': <Layers className="w-[18px] h-[18px]" />,
+  'egg-chicken-omelette': <Flame className="w-[18px] h-[18px]" />,
+  'starters-gravy': <Flame className="w-[18px] h-[18px]" />,
+  'omelette-parota': <Egg className="w-[18px] h-[18px]" />,
+  'chefs-specials': <Sparkles className="w-[18px] h-[18px]" />,
+  'biryani': <Sparkles className="w-[18px] h-[18px]" />,
+  'extras-sides': <PlusCircle className="w-[18px] h-[18px]" />,
+  'dosa-nonveg': <ChefHat className="w-[18px] h-[18px]" />,
+  'parota-veg-gravy': <Leaf className="w-[18px] h-[18px]" />,
+  'idli-vada': <Disc className="w-[18px] h-[18px]" />,
+  'uttappam': <GridIcon className="w-[18px] h-[18px]" />,
+  'dosa-veg': <Compass className="w-[18px] h-[18px]" />,
+  'beverages': <Coffee className="w-[18px] h-[18px]" />
 };
 
 export default function MenuSection() {
@@ -139,14 +139,14 @@ export default function MenuSection() {
         </div>
 
         {/* Filters and Search Container */}
-        <div className="sticky top-[68px] z-30 bg-brand-green-dark backdrop-blur-md pt-2.5 pb-2 border-b border-brand-gold/10 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 max-w-7xl mx-auto">
+        <div className="sticky top-[68px] z-30 bg-brand-green-dark backdrop-blur-md pt-3 pb-2.5 border-b border-brand-gold/10 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-3.5 max-w-7xl mx-auto">
             
             {/* Veg / Non-Veg Segmented Control */}
             <div className="flex bg-white/5 p-1 rounded-full border border-white/10 self-center md:self-auto shrink-0 shadow-inner">
               <button
                 onClick={() => setFilterType('all')}
-                className={`px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full font-body text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer ${
+                className={`px-4 py-2 sm:px-4.5 sm:py-2.5 rounded-full font-body text-xs sm:text-sm font-extrabold transition-all duration-200 cursor-pointer ${
                   filterType === 'all'
                     ? 'bg-brand-gold text-brand-green-dark shadow-sm'
                     : 'text-white/80 hover:text-white'
@@ -156,37 +156,37 @@ export default function MenuSection() {
               </button>
               <button
                 onClick={() => setFilterType('veg')}
-                className={`px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full font-body text-xs sm:text-sm font-bold transition-all duration-200 flex items-center gap-1 cursor-pointer ${
+                className={`px-4 py-2 sm:px-4.5 sm:py-2.5 rounded-full font-body text-xs sm:text-sm font-extrabold transition-all duration-200 flex items-center gap-1.5 cursor-pointer ${
                   filterType === 'veg'
                     ? 'bg-green-700 text-white shadow-sm'
                     : 'text-white/85 hover:text-green-400'
                 }`}
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-green-500 block border border-white" />
+                <span className="w-2 h-2 rounded-full bg-green-500 block border border-white" />
                 Veg
               </button>
               <button
                 onClick={() => setFilterType('non-veg')}
-                className={`px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full font-body text-xs sm:text-sm font-bold transition-all duration-200 flex items-center gap-1 cursor-pointer ${
+                className={`px-4 py-2 sm:px-4.5 sm:py-2.5 rounded-full font-body text-xs sm:text-sm font-extrabold transition-all duration-200 flex items-center gap-1.5 cursor-pointer ${
                   filterType === 'non-veg'
                     ? 'bg-brand-red text-white shadow-sm'
                     : 'text-white/85 hover:text-brand-red'
                 }`}
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-brand-red block border border-white" />
+                <span className="w-2 h-2 rounded-full bg-brand-red block border border-white" />
                 Non-Veg
               </button>
             </div>
 
             {/* Search Box */}
-            <div className="relative w-full md:max-w-xs shadow-inner rounded-full overflow-hidden border border-white/10 hover:border-brand-gold/30 focus-within:border-brand-gold/50 transition-all duration-300 bg-white/5">
-              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40" />
+            <div className="relative w-full md:max-w-sm shadow-inner rounded-full overflow-hidden border border-white/10 hover:border-brand-gold/30 focus-within:border-brand-gold/50 transition-all duration-300 bg-white/5">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-[18px] h-[18px] text-white/45" />
               <input
                 type="text"
                 placeholder="Search menu..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 bg-transparent font-body text-xs sm:text-sm outline-none text-white placeholder-white/40"
+                className="w-full pl-11 pr-5 py-2.5 bg-transparent font-body text-xs sm:text-sm md:text-base outline-none text-white placeholder-white/45"
                 aria-label="Search menu items"
               />
             </div>
@@ -195,20 +195,20 @@ export default function MenuSection() {
           {/* Sticky Horizontally Scrolling Category Pills */}
           <div
             ref={categoriesNavRef}
-            className="flex items-center gap-2 overflow-x-auto no-scrollbar py-2 mt-2 -mx-4 px-4 scroll-smooth"
+            className="flex items-center gap-2.5 overflow-x-auto no-scrollbar py-2 mt-2 -mx-4 px-4 scroll-smooth"
           >
             {filteredMenu.map((category) => (
               <button
                 key={category.id}
                 id={`pill-${category.id}`}
                 onClick={() => handleCategoryClick(category.id)}
-                className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full border text-xs sm:text-sm font-bold whitespace-nowrap transition-all duration-300 shrink-0 cursor-pointer ${
+                className={`inline-flex items-center gap-2 px-4 py-2 sm:px-4.5 sm:py-2.5 rounded-full border text-xs sm:text-sm font-extrabold whitespace-nowrap transition-all duration-300 shrink-0 cursor-pointer ${
                   activeCategory === category.id
-                    ? 'border-brand-gold bg-gradient-to-r from-brand-gold to-brand-gold-hover text-brand-green-dark shadow-[0_2px_8px_rgba(201,162,39,0.2)]'
+                    ? 'border-brand-gold bg-gradient-to-r from-brand-gold to-brand-gold-hover text-brand-green-dark shadow-[0_2px_10px_rgba(201,162,39,0.25)]'
                     : 'bg-white/5 border-white/10 text-white/80 hover:border-brand-gold hover:text-brand-gold hover:bg-white/10'
                 }`}
               >
-                {categoryIcons[category.id] || <Utensils className="w-4 h-4" />}
+                {categoryIcons[category.id] || <Utensils className="w-[18px] h-[18px]" />}
                 {category.title}
               </button>
             ))}
