@@ -130,39 +130,23 @@ export default function Preloader() {
                     transition={{ repeat: Infinity, duration: 2, ease: 'linear' }}
                     style={{ originX: '50px', originY: '50px' }}
                   />
-
-                  {/* Inner Slow Ring - Counterclockwise */}
-                  <motion.circle
-                    cx="50"
-                    cy="50"
-                    r="38"
-                    stroke="currentColor"
-                    strokeWidth="1.2"
-                    strokeLinecap="round"
-                    strokeDasharray="20 10 5 15"
-                    fill="transparent"
-                    filter="url(#gold-glow)"
-                    animate={{ rotate: -360 }}
-                    transition={{ repeat: Infinity, duration: 3.5, ease: 'linear' }}
-                    style={{ originX: '50px', originY: '50px' }}
-                  />
                 </svg>
               )}
 
               {/* Pulsing Logo in the center */}
               <motion.div
                 className="relative w-52 h-52 z-10 drop-shadow-[0_0_25px_rgba(201,162,39,0.35)]"
-                initial={{ opacity: 0, scale: 0.8 }}
+                initial={{ opacity: 0, scale: 0 }}
                 animate={prefersReducedMotion ? { opacity: 1, scale: 1 } : { 
                   opacity: 1, 
-                  scale: [0.96, 1.03, 0.96],
+                  scale: [0, 1.25, 0.94, 1.03, 1],
                 }}
                 transition={prefersReducedMotion ? { duration: 0.6 } : {
-                  opacity: { duration: 0.6 },
+                  opacity: { duration: 0.4 },
                   scale: {
-                    repeat: Infinity,
-                    duration: 2.2,
-                    ease: 'easeInOut'
+                    duration: 1.2,
+                    ease: 'easeOut',
+                    times: [0, 0.4, 0.7, 0.9, 1]
                   }
                 }}
               >
