@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 import { menuData } from '@/lib/menu-data';
 import { MenuItem, MenuCategory } from '@/lib/types';
 import { 
@@ -225,7 +226,13 @@ export default function MenuSection() {
                 className="scroll-mt-36 border-b border-white/5 pb-12 last:border-0 last:pb-0"
               >
                 {/* Category Header */}
-                <div className="flex flex-col items-start mb-8 animate-float-subtle">
+                <motion.div 
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-30px" }}
+                  transition={{ duration: 0.5, ease: 'easeOut' }}
+                  className="border-b border-brand-gold/20 pb-3"
+                >
                   <div className="flex items-center gap-3">
                     <div className="p-2.5 rounded-xl bg-white/5 border border-brand-gold/15 text-brand-gold shrink-0">
                       {categoryIcons[category.id] || <Utensils className="w-6 h-6" />}
@@ -247,13 +254,17 @@ export default function MenuSection() {
                       {category.note}
                     </p>
                   )}
-                </div>
+                </motion.div>
 
                 {/* Items list using leaf background cards */}
                 <div className="grid grid-cols-1 gap-4">
                   {category.items.map((item, idx) => (
-                    <div 
+                    <motion.div 
                       key={idx} 
+                      initial={{ opacity: 0, y: 22, scale: 0.98 }}
+                      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                      viewport={{ once: true, margin: "-20px" }}
+                      transition={{ duration: 0.45, delay: Math.min(idx * 0.05, 0.25), ease: 'easeOut' }}
                       className="relative overflow-hidden rounded-2xl border-2 border-brand-gold/80 bg-white text-brand-green-dark p-3.5 sm:p-4 grid grid-cols-12 items-center gap-3 shadow-[0_0_18px_rgba(201,162,39,0.35)] hover:shadow-[0_0_30px_rgba(201,162,39,0.65)] hover:border-brand-gold transition-all duration-300 ease-out hover:-translate-y-[6px] hover:scale-[1.02]"
                     >
                       {/* Left: Item Details & Variants */}
@@ -317,7 +328,7 @@ export default function MenuSection() {
                           </span>
                         </div>
                       )}
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </div>

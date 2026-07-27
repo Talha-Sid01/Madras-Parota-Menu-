@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Phone, BookOpen } from 'lucide-react';
+import { Phone, BookOpen, ChevronDown } from 'lucide-react';
 import TraditionalPattern from '@/components/TraditionalPattern';
 
 export default function Hero() {
@@ -136,6 +136,20 @@ export default function Hero() {
             <Phone className="w-4 h-4 fill-current" />
             Call +91 70457 14545
           </a>
+        </motion.div>
+
+        {/* Mobile Scroll Indicator Cue */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, y: [0, 6, 0] }}
+          transition={{
+            opacity: { delay: 0.8, duration: 0.5 },
+            y: { repeat: Infinity, duration: 1.8, ease: 'easeInOut' }
+          }}
+          className="mt-6 flex flex-col items-center gap-1 sm:hidden text-brand-green-dark/70 text-xs font-body font-bold tracking-wider select-none"
+        >
+          <span>Scroll to Explore</span>
+          <ChevronDown className="w-4 h-4 text-brand-gold animate-bounce" />
         </motion.div>
 
       </div>

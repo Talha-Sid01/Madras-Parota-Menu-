@@ -1,4 +1,7 @@
+'use client';
+
 import React from 'react';
+import { motion } from 'framer-motion';
 import { ChefHat, Flame, Leaf, Utensils } from 'lucide-react';
 
 export default function Highlights() {
@@ -33,8 +36,12 @@ export default function Highlights() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {features.map((item, idx) => (
-            <div 
+            <motion.div 
               key={idx} 
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-30px" }}
+              transition={{ duration: 0.5, delay: idx * 0.12 }}
               className="flex items-start gap-4 p-5 rounded-2xl border border-brand-gold/10 bg-brand-sandalwood/40 transition-all duration-300 hover:-translate-y-1 hover:bg-brand-cream hover:shadow-[0_10px_30px_rgba(201,162,39,0.08)] hover:border-brand-gold/30"
             >
               <div className="flex-shrink-0 p-3 rounded-xl bg-brand-green-dark/5 border border-brand-gold/15 flex items-center justify-center">
@@ -48,7 +55,7 @@ export default function Highlights() {
                   {item.description}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
