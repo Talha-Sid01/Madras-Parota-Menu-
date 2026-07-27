@@ -5,8 +5,8 @@ export default function FindUs() {
   const address = "New Link Rd, opp Evershine Mall, Malad, Chincholi Bunder, Malad West, Mumbai - 400064";
   const directionsUrl = "https://share.google/5GnIQRnsboSGdbPpo";
   
-  // Maps embed URL based on query
-  const mapEmbedUrl = "https://maps.google.com/maps?q=New%20Link%20Rd%2C%20opp%20Evershine%20Mall%2C%20Malad%2C%20Chincholi%20Bunder%2C%20Malad%20West%2C%20Mumbai%20-%20400064&t=&z=16&ie=UTF8&iwloc=&output=embed";
+  // Maps embed URL based on Madras Parota location
+  const mapEmbedUrl = "https://maps.google.com/maps?q=Madras%20Parota%2C%20New%20Link%20Rd%2C%20opp%20Evershine%20Mall%2C%20Malad%2C%20Chincholi%20Bunder%2C%20Malad%20West%2C%20Mumbai%20-%20400064&t=&z=16&ie=UTF8&iwloc=&output=embed";
 
   return (
     <section id="location" className="py-16 md:py-24 bg-transparent border-t border-brand-green/5 relative">
