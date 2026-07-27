@@ -23,7 +23,7 @@ export default function Hero() {
   return (
     <section 
       id="home" 
-      className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden bg-brand-cream/30 flex items-center justify-center min-h-[70vh]"
+      className="relative pt-20 pb-10 md:pt-28 md:pb-16 overflow-hidden bg-brand-cream/30 flex items-center justify-center min-h-[60vh]"
     >
       {/* Background Subtle Watermark (Parota Spiral Motif) */}
       <div className="absolute inset-0 flex items-center justify-center opacity-[0.03] pointer-events-none text-brand-gold select-none">
@@ -45,7 +45,7 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, ease: 'easeOut' }}
-          className="relative w-[384px] h-[384px] sm:w-[460px] sm:h-[460px] lg:w-[512px] lg:h-[512px] mb-8 flex items-center justify-center"
+          className="relative w-[85vw] h-[85vw] max-w-[400px] max-h-[400px] sm:w-[500px] sm:h-[500px] lg:w-[560px] lg:h-[560px] mb-3 flex items-center justify-center"
         >
           {/* Warm spotlight glow behind logo */}
           <div className="absolute w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] bg-brand-gold/15 rounded-full blur-3xl pointer-events-none animate-pulse" />
@@ -55,7 +55,7 @@ export default function Hero() {
             alt="Madras Parota Logo"
             fill
             priority
-            sizes="(max-width: 640px) 384px, (max-width: 1024px) 460px, 512px"
+            sizes="(max-width: 640px) 400px, (max-width: 1024px) 500px, 560px"
             className="object-contain drop-shadow-[0_15px_30px_rgba(8,69,47,0.15)] select-none animate-float-subtle"
           />
         </motion.div>
