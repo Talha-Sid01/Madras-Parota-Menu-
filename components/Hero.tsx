@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Phone, BookOpen } from 'lucide-react';
+import TraditionalPattern from '@/components/TraditionalPattern';
 
 export default function Hero() {
   const handleScrollToMenu = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -25,6 +26,9 @@ export default function Hero() {
       id="home" 
       className="relative pt-16 pb-8 md:pt-24 md:pb-14 overflow-hidden bg-brand-cream/30 flex items-center justify-center min-h-[55vh]"
     >
+      {/* South Indian Traditional Fine Gold Linework Artwork Layer */}
+      <TraditionalPattern opacity={0.12} />
+
       {/* Background Subtle Watermark (Parota Spiral Motif) */}
       <div className="absolute inset-0 flex items-center justify-center opacity-[0.03] pointer-events-none text-brand-gold select-none">
         <svg viewBox="0 0 100 100" className="w-[500px] h-[500px] animate-[spin_120s_linear_infinite]">
