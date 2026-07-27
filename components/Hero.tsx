@@ -45,18 +45,18 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, ease: 'easeOut' }}
-          className="relative w-[85vw] h-[85vw] max-w-[400px] max-h-[400px] sm:w-[500px] sm:h-[500px] lg:w-[560px] lg:h-[560px] mb-3 flex items-center justify-center"
+          className="relative w-[95vw] h-[95vw] max-w-[460px] max-h-[460px] sm:w-[500px] sm:h-[500px] lg:w-[560px] lg:h-[560px] mb-3 flex items-center justify-center"
         >
           {/* Warm spotlight glow behind logo */}
-          <div className="absolute w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] bg-brand-gold/15 rounded-full blur-3xl pointer-events-none animate-pulse" />
+          <div className="absolute w-[300px] h-[300px] sm:w-[380px] sm:h-[380px] bg-brand-gold/20 rounded-full blur-3xl pointer-events-none animate-pulse" />
           
           <Image
             src="/images/logo.png"
             alt="Madras Parota Logo"
             fill
             priority
-            sizes="(max-width: 640px) 400px, (max-width: 1024px) 500px, 560px"
-            className="object-contain drop-shadow-[0_15px_30px_rgba(8,69,47,0.15)] select-none animate-float-subtle"
+            sizes="(max-width: 640px) 460px, (max-width: 1024px) 500px, 560px"
+            className="object-contain drop-shadow-[0_0_15px_rgba(201,162,39,0.85)] drop-shadow-[0_0_30px_rgba(201,162,39,0.45)] select-none animate-float-subtle"
           />
         </motion.div>
 
