@@ -23,7 +23,7 @@ export default function Hero() {
   return (
     <section 
       id="home" 
-      className="relative pt-20 pb-10 md:pt-28 md:pb-16 overflow-hidden bg-brand-cream/30 flex items-center justify-center min-h-[60vh]"
+      className="relative pt-16 pb-8 md:pt-24 md:pb-14 overflow-hidden bg-brand-cream/30 flex items-center justify-center min-h-[55vh]"
     >
       {/* Background Subtle Watermark (Parota Spiral Motif) */}
       <div className="absolute inset-0 flex items-center justify-center opacity-[0.03] pointer-events-none text-brand-gold select-none">
@@ -40,23 +40,23 @@ export default function Hero() {
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col items-center text-center">
         
-        {/* Centered Logo with Spotlight */}
+        {/* Centered Logo with Golden Edge Glow */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, ease: 'easeOut' }}
-          className="relative w-[95vw] h-[95vw] max-w-[460px] max-h-[460px] sm:w-[500px] sm:h-[500px] lg:w-[560px] lg:h-[560px] mb-3 flex items-center justify-center"
+          className="relative w-[96vw] h-[96vw] max-w-[540px] max-h-[540px] sm:w-[560px] sm:h-[560px] lg:w-[620px] lg:h-[620px] mb-2 flex items-center justify-center"
         >
           {/* Warm spotlight glow behind logo */}
-          <div className="absolute w-[300px] h-[300px] sm:w-[380px] sm:h-[380px] bg-brand-gold/20 rounded-full blur-3xl pointer-events-none animate-pulse" />
+          <div className="absolute w-[320px] h-[320px] sm:w-[420px] sm:h-[420px] bg-brand-gold/25 rounded-full blur-3xl pointer-events-none animate-pulse" />
           
           <Image
             src="/images/logo.png"
             alt="Madras Parota Logo"
             fill
             priority
-            sizes="(max-width: 640px) 460px, (max-width: 1024px) 500px, 560px"
-            className="object-contain drop-shadow-[0_0_15px_rgba(201,162,39,0.85)] drop-shadow-[0_0_30px_rgba(201,162,39,0.45)] select-none animate-float-subtle"
+            sizes="(max-width: 640px) 540px, (max-width: 1024px) 560px, 620px"
+            className="object-contain drop-shadow-[0_0_18px_rgba(201,162,39,0.85)] drop-shadow-[0_0_35px_rgba(218,165,32,0.55)] select-none animate-float-subtle"
           />
         </motion.div>
 
